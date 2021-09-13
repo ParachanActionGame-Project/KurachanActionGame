@@ -6,7 +6,7 @@
 enum class State
 {
 	Title,
-
+	Credit,
 	Game
 };
 

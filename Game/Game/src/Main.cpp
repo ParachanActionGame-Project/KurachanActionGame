@@ -9,6 +9,7 @@
 //
 
 # include "Common.hpp"
+# include "CreditScene.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
 
@@ -27,10 +28,12 @@ void Main()
 	FontAsset::Register(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
+	FontAsset::Register(U"CreditScene", 36, Typeface::Bold);
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.setFadeColor(ColorF(1.0));
