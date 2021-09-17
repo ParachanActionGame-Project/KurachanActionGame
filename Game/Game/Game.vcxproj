@@ -234,11 +234,15 @@
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\ParachanSample.cpp" />
+    <ClCompile Include="src\ParaSampleScene.cpp" />
     <ClCompile Include="src\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.hpp" />
     <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\ParachanSample.hpp" />
+    <ClInclude Include="src\ParaSampleScene.hpp" />
     <ClInclude Include="src\Title.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
