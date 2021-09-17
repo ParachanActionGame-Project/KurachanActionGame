@@ -35,10 +35,10 @@ void Main()
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<ParaSampleScene>(State::ParaSample)
 		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
-		.add<ParaSampleScene>(State::ParaSample)
 		.setFadeColor(ColorF(1.0));
 
 	Console.open();

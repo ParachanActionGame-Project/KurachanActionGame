@@ -1,10 +1,10 @@
-
+ï»¿
 # pragma once
 #include "Common.hpp"
 #include <vector>
 #include "ParachanSample.hpp"
 
-// parachanƒQ[ƒ€ƒV[ƒ“‚ÌƒTƒ“ƒvƒ‹
+// parachanã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã®ã‚µãƒ³ãƒ—ãƒ«
 class ParaSampleScene : public MyApp::Scene
 {
 private:

@@ -1,4 +1,4 @@
-#include "ParachanSample.hpp"
+﻿#include "ParachanSample.hpp"
 
 ParachanSample::ParachanSample(const Vec2 position, double radius, const Vec2 velocity) {
 	this->position = position;
