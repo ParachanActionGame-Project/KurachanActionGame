@@ -11,6 +11,7 @@
 # include "Common.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
+# include "Start.hpp"
 
 void Main()
 {
@@ -31,9 +32,11 @@ void Main()
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<Start>(State::Start)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.setFadeColor(ColorF(1.0));
+	    
 
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
