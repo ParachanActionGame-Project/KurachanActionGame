@@ -7,6 +7,7 @@ enum class State
 {
 	Title,
 
+	ParaSample,
 	Game
 };
 
