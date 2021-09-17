@@ -1,7 +1,7 @@
-# pragma once
+ï»¿# pragma once
 # include <Siv3D.hpp>
 
-/* ‚Ï‚ç‚¿‚á‚ñ1‘Ì‚Ìƒpƒ‰ƒ[ƒ^•Û‚Æˆ— */
+/* ã±ã‚‰ã¡ã‚ƒã‚“1ä½“ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä¿æŒã¨å‡¦ç† */
 class ParachanSample {
 private:
 	Vec2 position;
@@ -9,14 +9,14 @@ private:
 	Vec2 velocity;
 	
 public:
-	/* ƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+	/* ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 	ParachanSample(const Vec2 position, double radius, const Vec2 velocity);
 	ParachanSample(const Vec2 position, double radius);
 
-	/* –ˆƒtƒŒ[ƒ€‚Ì’lXVˆ— */
+	/* æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®å€¤æ›´æ–°å‡¦ç† */
 	void update();
 
-	/* –ˆƒtƒŒ[ƒ€‚Ì•`‰æˆ— */
+	/* æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®æç”»å‡¦ç† */
 	void draw();
 
 	/* getter */

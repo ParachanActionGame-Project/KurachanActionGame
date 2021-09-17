@@ -35,7 +35,7 @@ void ParaSampleScene::checkMouseClick() {
 
 void ParaSampleScene::draw() const
 {
-	const String titleText = U"ƒQ[ƒ€ƒTƒ“ƒvƒ‹";
+	const String titleText = U"ã‚µãƒ³ãƒ—ãƒ«ã‚²ãƒ¼ãƒ ";
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"ParaSampleScene")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"ParaSampleScene")(titleText).drawAt(center);
