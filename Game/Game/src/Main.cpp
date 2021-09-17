@@ -9,6 +9,7 @@
 //
 
 # include "Common.hpp"
+# include "CreditScene.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
 # include "ParaSampleScene.hpp"
@@ -29,10 +30,12 @@ void Main()
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
 	FontAsset::Register(U"ParaSampleScene", 36, Typeface::Bold);
+	FontAsset::Register(U"CreditScene", 36, Typeface::Bold);
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.add<ParaSampleScene>(State::ParaSample)
