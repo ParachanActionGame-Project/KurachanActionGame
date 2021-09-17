@@ -10,6 +10,8 @@ enum class State
 	Game,
 
 	Start,
+	ParaSample,
+	Credit,
 };
 
 // ゲームデータ
