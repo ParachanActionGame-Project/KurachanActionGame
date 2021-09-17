@@ -2,7 +2,7 @@
 # pragma once
 # include "Common.hpp"
 
-// タイトルシーン
+// クレジットシーン
 class CreditScene : public MyApp::Scene
 {
 private:
