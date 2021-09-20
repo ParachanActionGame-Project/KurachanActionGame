@@ -10,6 +10,7 @@
 
 # include "Common.hpp"
 # include "Title.hpp"
+# include "Rule.hpp"
 # include "Game.hpp"
 
 void Main()
@@ -31,6 +32,7 @@ void Main()
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<Rule>(State::Rule)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.setFadeColor(ColorF(1.0));
