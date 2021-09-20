@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 # include "Common.hpp"
 
-// ƒ‹[ƒ‹ƒV[ƒ“
+// ãƒ«ãƒ¼ãƒ«ã‚·ãƒ¼ãƒ³
 class Rule : public MyApp::Scene
 {
 private:

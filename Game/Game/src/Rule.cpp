@@ -1,4 +1,4 @@
-
+ï»¿
 # include "Rule.hpp"
 
 Rule::Rule(const InitData& init)
@@ -20,14 +20,14 @@ void Rule::update()
 
 void Rule::draw() const
 {
-	const String titleText = U"ƒuƒƒbƒN‚­‚¸‚µ";
+	const String titleText = U"ãƒ–ãƒ­ãƒƒã‚¯ããšã—";
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"Rule")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"Rule")(titleText).drawAt(center);
 
 	m_returnButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 
-	FontAsset(U"Menu")(U"ƒ^ƒCƒgƒ‹‚É–ß‚é").drawAt(m_returnButton.center(), ColorF(0.25));
+	FontAsset(U"Menu")(U"ã‚¿ã‚¤ãƒˆãƒ«ã«æˆ»ã‚‹").drawAt(m_returnButton.center(), ColorF(0.25));
 
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
