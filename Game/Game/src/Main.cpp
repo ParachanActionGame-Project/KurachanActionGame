@@ -9,9 +9,11 @@
 //
 
 # include "Common.hpp"
+# include "CreditScene.hpp"
 # include "Title.hpp"
 # include "Rule.hpp"
 # include "Game.hpp"
+# include "ParaSampleScene.hpp"
 
 void Main()
 {
@@ -28,14 +30,20 @@ void Main()
 	FontAsset::Register(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
+	FontAsset::Register(U"ParaSampleScene", 36, Typeface::Bold);
+	FontAsset::Register(U"CreditScene", 36, Typeface::Bold);
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
 		.add<Rule>(State::Rule)
+		.add<ParaSampleScene>(State::ParaSample)
+		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.setFadeColor(ColorF(1.0));
+
+	Console.open();
 
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
@@ -47,6 +55,7 @@ void Main()
 			break;
 		}
 	}
+
 }
 
 //

@@ -170,6 +170,8 @@
     <None Include="App\example\zip\zip_test.zip" />
     <None Include="App\nlp\japanese\jumanpp\LICENSE" />
     <None Include="App\nlp\japanese\jumanpp\README.md" />
+    <None Include="icon.icns" />
+    <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="App\engine\font\fontawesome\LICENSE.txt" />
@@ -232,15 +234,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CreditScene.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Rule.cpp" />
+    <ClCompile Include="src\ParachanSample.cpp" />
+    <ClCompile Include="src\ParaSampleScene.cpp" />
     <ClCompile Include="src\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.hpp" />
+    <ClInclude Include="src\CreditScene.hpp" />
     <ClInclude Include="src\Game.hpp" />
     <ClInclude Include="src\Rule.hpp" />
+    <ClInclude Include="src\ParachanSample.hpp" />
+    <ClInclude Include="src\ParaSampleScene.hpp" />
     <ClInclude Include="src\Title.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

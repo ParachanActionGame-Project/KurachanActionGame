@@ -310,6 +310,8 @@
     <None Include="App\example\zip\zip_test.zip">
       <Filter>Resource Files\example\zip</Filter>
     </None>
+    <None Include="icon.icns" />
+    <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="App\engine\font\fontawesome\LICENSE.txt">
@@ -383,6 +385,15 @@
     <ClCompile Include="src\Rule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ParaSampleScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParachanSample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CreditScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.hpp">
@@ -395,6 +406,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Rule.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParaSampleScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParachanSample.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CreditScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
