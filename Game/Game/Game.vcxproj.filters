@@ -382,6 +382,9 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\ParaSampleScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -400,6 +403,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Common.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rule.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ParaSampleScene.hpp">
