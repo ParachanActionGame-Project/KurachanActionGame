@@ -17,7 +17,7 @@ public:
 	void update();
 
 	/* 毎フレームの描画処理 */
-	void draw();
+	void draw() const;
 
 	/* getter */
 	Vec2 getPosition() const;

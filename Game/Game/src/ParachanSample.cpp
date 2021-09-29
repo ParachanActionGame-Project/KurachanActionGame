@@ -14,7 +14,7 @@ void ParachanSample::update() {
 	this->position += velocity * Scene::DeltaTime();
 }
 
-void ParachanSample::draw() {
+void ParachanSample::draw() const {
 	Circle(position, radius).draw(Palette::Red);
 }
 

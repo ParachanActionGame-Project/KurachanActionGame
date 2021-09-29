@@ -1,13 +1,13 @@
 ﻿
-# include "Title.hpp"
+# include "ResultScene.hpp"
 
-Title::Title(const InitData& init)
+ResultScene::ResultScene(const InitData& init)
 	: IScene(init)
 {
-
+	
 }
 
-void Title::update()
+void ResultScene::update()
 {
 	m_startTransition.update(m_startButton.mouseOver());
 	m_exitTransition.update(m_exitButton.mouseOver());
@@ -20,32 +20,36 @@ void Title::update()
 	if (m_startButton.leftClicked())
 	{
 		//changeScene(State::Game);
-		//changeScene(State::ParaSample);
-		changeScene(State::Result);
+		changeScene(State::ParaSample);
 	}
 
 	if (m_exitButton.leftClicked())
 	{
 		System::Exit();
 	}
+
+	// ぱらちゃんの移動処理はupdateの実装に依存する
+	parachan.update();
 }
 
-void Title::draw() const
+void ResultScene::draw() const
 {
-	const String titleText = U"ブロックくずし";
+	const String titleText = U"けっか";
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"Title")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"Title")(titleText).drawAt(center);
+	FontAsset(U"Score")(U"今回のスコア: {}"_fmt(getData().currentScore)).drawAt(center + Vec2(0, 120));
+	FontAsset(U"Score")(U"ハイスコア: {}"_fmt(getData().highScore)).drawAt(center + Vec2(0, 160));
 
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
 
-	FontAsset(U"Menu")(U"はじめる").drawAt(m_startButton.center(), ColorF(0.25));
+	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"おわる").drawAt(m_exitButton.center(), ColorF(0.25));
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
 
-	const int32 highScore = getData().highScore;
-	FontAsset(U"Score")(U"High score: {}"_fmt(highScore)).drawAt(Vec2(620, 550));
+	// ぱらちゃんの描画処理はdrawの実装に依存する
+	parachan.draw();
 }

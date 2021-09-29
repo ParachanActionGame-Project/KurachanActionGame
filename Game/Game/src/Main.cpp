@@ -14,6 +14,7 @@
 # include "Rule.hpp"
 # include "Game.hpp"
 # include "ParaSampleScene.hpp"
+# include "ResultScene.hpp"
 
 void Main()
 {
@@ -41,6 +42,7 @@ void Main()
 		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
+		.add<ResultScene>(State::Result)
 		.setFadeColor(ColorF(1.0));
 
 	Console.open();
