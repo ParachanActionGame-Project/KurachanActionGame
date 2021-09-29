@@ -10,9 +10,10 @@ ResultScene::ResultScene(const InitData& init)
 void ResultScene::update()
 {
 	m_startTransition.update(m_startButton.mouseOver());
+	m_goTitleTransition.update(m_goTitleButton.mouseOver());
 	m_exitTransition.update(m_exitButton.mouseOver());
 
-	if (m_startButton.mouseOver() || m_exitButton.mouseOver())
+	if (m_startButton.mouseOver() || m_goTitleButton.mouseOver() || m_exitButton.mouseOver())
 	{
 		Cursor::RequestStyle(CursorStyle::Hand);
 	}
@@ -21,6 +22,11 @@ void ResultScene::update()
 	{
 		//changeScene(State::Game);
 		changeScene(State::ParaSample);
+	}
+
+	if (m_goTitleButton.leftClicked())
+	{
+		changeScene(State::Title);
 	}
 
 	if (m_exitButton.leftClicked())
@@ -42,9 +48,11 @@ void ResultScene::draw() const
 	FontAsset(U"Score")(U"ハイスコア: {}"_fmt(getData().highScore)).drawAt(center + Vec2(0, 160));
 
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
+	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
 	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
 
 	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
+	FontAsset(U"Menu")(U"タイトルへ").drawAt(m_goTitleButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"おわる").drawAt(m_exitButton.center(), ColorF(0.25));
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
