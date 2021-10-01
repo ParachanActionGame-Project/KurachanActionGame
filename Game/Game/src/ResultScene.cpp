@@ -35,6 +35,10 @@ void ResultScene::update()
 		System::Exit();
 	}
 
+	if (m_tweetButton.leftClicked()) {
+		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #ParachanActionGame");
+	}
+
 	// ぱらちゃんの移動処理はupdateの実装に依存する
 	parachan.update();
 }
@@ -51,10 +55,12 @@ void ResultScene::draw() const
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
 	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
+	m_tweetButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
 
 	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"タイトルへ").drawAt(m_goTitleButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"おわる").drawAt(m_exitButton.center(), ColorF(0.25));
+	FontAsset(U"Menu")(U"ツイート").drawAt(m_tweetButton.center(), ColorF(0.25));
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
