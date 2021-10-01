@@ -9,6 +9,7 @@ enum class State
 	Rule,
 	ParaSample,
 	Credit,
+	Result,
 	Game
 };
 
@@ -17,6 +18,9 @@ struct GameData
 {
 	// ハイスコア
 	int32 highScore = 0;
+
+	// 今回のスコア
+	int32 currentScore = 0;
 };
 
 // シーン管理クラス
