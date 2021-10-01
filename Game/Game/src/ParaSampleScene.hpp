@@ -16,8 +16,6 @@ public:
 
 	void checkMouseClick();
 
-	//void checkReflection();
-
 	void update() override;
 
 	void draw() const override;
