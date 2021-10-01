@@ -4,7 +4,8 @@
 ResultScene::ResultScene(const InitData& init)
 	: IScene(init)
 {
-	
+	//getData().currentScore = 20;
+	updateHighScore();
 }
 
 void ResultScene::update()
@@ -45,7 +46,7 @@ void ResultScene::draw() const
 	FontAsset(U"Title")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"Title")(titleText).drawAt(center);
 	FontAsset(U"Score")(U"今回のスコア: {}"_fmt(getData().currentScore)).drawAt(center + Vec2(0, 120));
-	FontAsset(U"Score")(U"ハイスコア: {}"_fmt(getData().highScore)).drawAt(center + Vec2(0, 160));
+	FontAsset(U"Score")(U"ハイスコア: {}"_fmt(highScore)).drawAt(center + Vec2(0, 160));
 
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
@@ -60,4 +61,34 @@ void ResultScene::draw() const
 
 	// ぱらちゃんの描画処理はdrawの実装に依存する
 	parachan.draw();
+}
+
+void ResultScene::writeHighScore() 
+{
+	TextWriter writer(U"highscore.txt");
+
+	if (!writer) {
+		throw Error(U"failed to open 'highscore.txt'");
+	}
+
+	writer << getData().highScore;
+}
+
+void ResultScene::setHighScore(int highScore) 
+{
+	this->highScore = highScore;
+}
+
+int ResultScene::getHighScore() 
+{
+	return highScore;
+}
+
+void ResultScene::updateHighScore() 
+{
+	highScore = getData().highScore;
+	if (getData().currentScore > highScore) {
+		getData().highScore = getData().currentScore;
+		writeHighScore();
+	}
 }
