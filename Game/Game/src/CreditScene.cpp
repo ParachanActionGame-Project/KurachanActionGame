@@ -1,4 +1,4 @@
-﻿
+﻿//roro
 # include "CreditScene.hpp"
 
 CreditScene::CreditScene(const InitData& init)
@@ -9,6 +9,7 @@ CreditScene::CreditScene(const InitData& init)
 
 void CreditScene::update()
 {
+	Window::Resize(Size(1280, 640));
 	m_startTransition.update(m_titleButton.mouseOver());
 
 	if (m_titleButton.mouseOver())
@@ -27,7 +28,9 @@ void CreditScene::update()
 
 void CreditScene::draw() const
 {
+	
 	//Scene::SetBackground(ColorF(1.0, 1.0, 1.0));
+	//antierror
 	Profiler::EnableAssetCreationWarning(false);
 	//const String CreditSceneText = U"クレジット";
 	//const String CreditText=U"制作(敬称略)　Jumpaku, さんたろ, \nロロ, しょくそん, アステル\n\n音源\n魔王魂\n\nイラスト(敬称略)\nJumpaku";

@@ -9,12 +9,16 @@ class ParaSampleScene : public MyApp::Scene
 {
 private:
 	std::vector<ParachanSample> parachans;
+	std::vector<ParachanSample> separate;
 
 public:
 
 	ParaSampleScene(const InitData& init);
+	Stopwatch stopwatch();
 
 	void checkMouseClick();
+
+	//void checkReflection();
 
 	void update() override;
 
