@@ -17,22 +17,6 @@ ParachanSample::ParachanSample(const Vec2 position, double size)
 
 	
 void ParachanSample::update() {
-	/*if (MouseL.down())
-	{
-		if ((getPosition() - Cursor::PosF()).length() < getRadius())
-		{
-			if (getRadius() < 20)
-			{
-				// ストップウォッチをリセットして再び 0 から計測
-				time_a.restart();
-			}
-			else if (getRadius() < 40)
-			{
-				// ストップウォッチをリセットして再び 0 から計測
-				time_b.restart();
-			}
-		}
-	}*/
 	//ストップウォッチで一定時間経過したら
 	  //20より小さく10よりおおきかったら20に
 	  //20より大きく40より小さかったら40に

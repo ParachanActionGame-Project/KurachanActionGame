@@ -9,12 +9,10 @@ class ParaSampleScene : public MyApp::Scene
 {
 private:
 	std::vector<ParachanSample> parachans;
-	std::vector<ParachanSample> separate;
-
+	int countClick = 0;
 public:
 
 	ParaSampleScene(const InitData& init);
-	Stopwatch stopwatch();
 
 	void checkMouseClick();
 

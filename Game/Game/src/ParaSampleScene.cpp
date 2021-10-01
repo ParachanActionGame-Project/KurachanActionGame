@@ -30,6 +30,7 @@ void ParaSampleScene::checkMouseClick() {
 		Vec2 mousePos = Cursor::PosF();
 		for (int i = 0; i < parachans.size(); i++) {
 			if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius()&&parachans[i].getRadius()>10) {
+				countClick++;
 				double r = parachans[i].getRadius() / 2.0;
 				//rorokaihenmae
 				//parachans.push_back(ParachanSample(
@@ -53,6 +54,8 @@ void ParaSampleScene::checkMouseClick() {
 				parachans.push_back(ParachanSample(
 					parachans[i].getPosition() + Vec2(r, 0.0), r, Vec2(direction_x, direction_y)));
 				parachans.erase(parachans.begin() + i);
+				if (countClick>16)
+					parachans.erase(parachans.begin()+Random(15));
 				return;
 			}
 		}
