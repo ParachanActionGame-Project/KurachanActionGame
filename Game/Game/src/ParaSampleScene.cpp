@@ -30,6 +30,8 @@ void ParaSampleScene::checkMouseClick() {
 		Vec2 mousePos = Cursor::PosF();
 		for (int i = 0; i < parachans.size(); i++) {
 			if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius()&&parachans[i].getRadius()>10) {
+				this->getData().highScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
+				std::cout << "現在のスコア: " << this->getData().highScore << std::endl;
 				double r = parachans[i].getRadius() / 2.0;
 				//rorokaihenmae
 				//parachans.push_back(ParachanSample(

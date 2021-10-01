@@ -11,6 +11,7 @@
 # include "Common.hpp"
 # include "CreditScene.hpp"
 # include "Title.hpp"
+# include "Rule.hpp"
 # include "Game.hpp"
 # include "ParaSampleScene.hpp"
 
@@ -35,6 +36,7 @@ void Main()
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
+		.add<Rule>(State::Rule)
 		.add<ParaSampleScene>(State::ParaSample)
 		.add<CreditScene>(State::Credit)
 		.add<Title>(State::Title)
