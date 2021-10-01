@@ -19,6 +19,11 @@ private:
 	Rect m_exitButton = Rect(Arg::center = Scene::Center().movedBy(0, 240), 300, 60);
 	Transition m_exitTransition = Transition(0.4s, 0.2s);
 
+	Rect m_tweetButton = Rect(Arg::center = Scene::Center().movedBy(300, 240), 150, 60);
+	Transition m_tweetTransition = Transition(0.4s, 0.2s);
+
+	int highScore; //今回のプレイ以前のハイスコア
+
 public:
 
 	ResultScene(const InitData& init);
@@ -26,4 +31,12 @@ public:
 	void update() override;
 
 	void draw() const override;
+
+	void writeHighScore();
+
+	void setHighScore(int highScore);
+
+	int getHighScore();
+
+	void updateHighScore();
 };
