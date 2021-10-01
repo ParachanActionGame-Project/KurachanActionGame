@@ -43,6 +43,8 @@
 		2DC4D21426F4A6B900BF4F0F /* ParaSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4D21026F4A6B900BF4F0F /* ParaSampleScene.cpp */; };
 		2DC4D21526F4A6B900BF4F0F /* ParachanSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4D21326F4A6B900BF4F0F /* ParachanSample.cpp */; };
 		2DC4D2182701E25800BF4F0F /* Rule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4D2172701E25800BF4F0F /* Rule.cpp */; };
+		2DC4D21B27047F3400BF4F0F /* ResultScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4D21927047F3400BF4F0F /* ResultScene.cpp */; };
+		2DC4D21E27048D9900BF4F0F /* ResultParachan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC4D21D27048D9900BF4F0F /* ResultParachan.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,10 @@
 		2DC4D21326F4A6B900BF4F0F /* ParachanSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParachanSample.cpp; sourceTree = "<group>"; };
 		2DC4D2162701E25800BF4F0F /* Rule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Rule.hpp; sourceTree = "<group>"; };
 		2DC4D2172701E25800BF4F0F /* Rule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rule.cpp; sourceTree = "<group>"; };
+		2DC4D21927047F3400BF4F0F /* ResultScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultScene.cpp; sourceTree = "<group>"; };
+		2DC4D21A27047F3400BF4F0F /* ResultScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResultScene.hpp; sourceTree = "<group>"; };
+		2DC4D21C27048D9900BF4F0F /* ResultParachan.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResultParachan.hpp; sourceTree = "<group>"; };
+		2DC4D21D27048D9900BF4F0F /* ResultParachan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResultParachan.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,10 @@
 		2C1778981CE0AA7C00BB8AD0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2DC4D21D27048D9900BF4F0F /* ResultParachan.cpp */,
+				2DC4D21C27048D9900BF4F0F /* ResultParachan.hpp */,
+				2DC4D21927047F3400BF4F0F /* ResultScene.cpp */,
+				2DC4D21A27047F3400BF4F0F /* ResultScene.hpp */,
 				2DC4D2172701E25800BF4F0F /* Rule.cpp */,
 				2DC4D2162701E25800BF4F0F /* Rule.hpp */,
 				2DC4D21326F4A6B900BF4F0F /* ParachanSample.cpp */,
@@ -281,7 +291,9 @@
 				2DC4D20F26F4A3EB00BF4F0F /* CreditScene.cpp in Sources */,
 				2DC4D2182701E25800BF4F0F /* Rule.cpp in Sources */,
 				2DC4D21526F4A6B900BF4F0F /* ParachanSample.cpp in Sources */,
+				2DC4D21B27047F3400BF4F0F /* ResultScene.cpp in Sources */,
 				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
+				2DC4D21E27048D9900BF4F0F /* ResultParachan.cpp in Sources */,
 				2C971A5B239732F900E66570 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
