@@ -12,10 +12,20 @@ ResultParachan::ResultParachan(const Vec2 position, double size)
 
 void ResultParachan::update() {
 	this->position += velocity * Scene::DeltaTime();
+	if (getPosition().x <= 0 + radius || getPosition().x >= Scene::Width() - radius)
+	{
+		this->velocity = Vec2(-velocity.x, velocity.y);
+	}
+	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() - radius)
+	{
+		this->velocity = Vec2(velocity.x, -velocity.y);
+	}
 }
 
 void ResultParachan::draw() const {
-	Circle(position, radius).draw(Palette::Red);
+	const Texture SecondPicture(U"cat.png");
+	const Vec2 pos = position + Vec2(-radius * 2.3, -radius * 2.3);
+	SecondPicture.scaled(radius / 20).draw(pos);
 }
 
 Vec2 ResultParachan::getPosition() const {

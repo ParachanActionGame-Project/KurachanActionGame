@@ -39,12 +39,13 @@ void ResultScene::update()
 		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #ParachanActionGame");
 	}
 
-	// ぱらちゃんの移動処理はupdateの実装に依存する
 	parachan.update();
 }
 
 void ResultScene::draw() const
 {
+	parachan.draw();
+
 	const String titleText = U"けっか";
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"Title")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
@@ -64,9 +65,6 @@ void ResultScene::draw() const
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
-
-	// ぱらちゃんの描画処理はdrawの実装に依存する
-	parachan.draw();
 }
 
 void ResultScene::writeHighScore() 

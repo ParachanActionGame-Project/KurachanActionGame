@@ -8,7 +8,7 @@
 class ResultScene : public MyApp::Scene
 {
 private:
-	ResultParachan parachan = ResultParachan(Scene::Center(), 40.0);
+	ResultParachan parachan = ResultParachan(Scene::Center(), 20.0, Vec2(100.0, 50.0));
 
 	Rect m_startButton = Rect(Arg::center = Scene::Center().movedBy(0, 80), 300, 60);
 	Transition m_startTransition = Transition(0.4s, 0.2s);
