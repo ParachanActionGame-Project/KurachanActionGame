@@ -394,6 +394,12 @@
     <ClCompile Include="src\CreditScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ResultScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResultParachan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.hpp">
@@ -415,6 +421,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CreditScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResultScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResultParachan.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,7 +20,8 @@ void Title::update()
 	if (m_startButton.leftClicked())
 	{
 		//changeScene(State::Game);
-		changeScene(State::ParaSample);
+		//changeScene(State::ParaSample);
+		changeScene(State::Result);
 	}
 
 	if (m_exitButton.leftClicked())

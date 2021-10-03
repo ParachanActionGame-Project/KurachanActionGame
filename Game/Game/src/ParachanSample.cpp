@@ -54,10 +54,7 @@ void ParachanSample::draw() {
 		SecondPicture.scaled(radius / 20).draw(position.moveBy(-radius * 2.3, -radius * 2.3));
 	else 
 		ThirdPicture.scaled(radius / 20).draw(position.moveBy(-radius * 2.3, -radius * 2.3));
-	//basecode
-	//Circle(position, radius).draw(Palette::Red);
 }
-
 
 Vec2 ParachanSample::getPosition() const {
 	return this->position;
