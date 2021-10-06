@@ -39,12 +39,17 @@ void ResultScene::update()
 		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #ParachanActionGame");
 	}
 
-	parachan.update();
+	for (int i = 0; i < parachans.size(); i++) {
+		parachans[i].update();
+	}
 }
 
 void ResultScene::draw() const
 {
-	parachan.draw();
+	for (int i = 0; i < parachans.size(); i++) {
+		//std::cout << parachans[i].getPosition() << " " << parachans[i].getVelocity() << std::endl;
+		parachans[i].draw();
+	}
 
 	const String titleText = U"けっか";
 	const Vec2 center(Scene::Center().x, 120);

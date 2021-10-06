@@ -7,6 +7,9 @@ private:
 	Vec2 position;
 	double radius;
 	Vec2 velocity;
+	const String smallImage = U"Characters/Kurachan_1.png";
+	const String middleImage = U"Characters/Kurachan_2.png";
+	const String bigImage = U"Characters/Kurachan.png";
 
 public:
 	/* コンストラクタ */

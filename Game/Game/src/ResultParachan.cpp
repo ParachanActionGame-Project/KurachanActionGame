@@ -23,9 +23,20 @@ void ResultParachan::update() {
 }
 
 void ResultParachan::draw() const {
-	const Texture SecondPicture(U"cat.png");
+	String file;
+	//Texture picture;
+	//if (radius < 10.1) file = U"Characters/Kurachan_1.png";
+	/*if (radius < 10.1) file = U"cat.png";
+	if (radius < 20.1) file = U"Characters/Kurachan_2.png";
+	else file = U"Characters/Kurachan.png";*/
+	if (radius < 10.1) file = smallImage;
+	if (radius < 20.1) file = middleImage;
+	else file = bigImage;
+
+	Texture picture(file);
+	//const Texture picture(U"cat.png");
 	const Vec2 pos = position + Vec2(-radius * 2.3, -radius * 2.3);
-	SecondPicture.scaled(radius / 20).draw(pos);
+	picture.scaled(radius / 20).draw(pos);
 }
 
 Vec2 ResultParachan::getPosition() const {
