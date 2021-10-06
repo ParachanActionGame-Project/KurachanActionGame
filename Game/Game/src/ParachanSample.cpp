@@ -6,7 +6,6 @@ ParachanSample::ParachanSample(const Vec2 position, double radius, const Vec2 ve
 	this->position = position;
 	this->radius = radius;
 	this->velocity = velocity;
-
 }
 
 
@@ -17,9 +16,6 @@ ParachanSample::ParachanSample(const Vec2 position, double size)
 
 	
 void ParachanSample::update() {
-	//ストップウォッチで一定時間経過したら
-	  //20より小さく10よりおおきかったら20に
-	  //20より大きく40より小さかったら40に
 	this->position += velocity * Scene::DeltaTime();
 	if (getPosition().x <= 0+radius || getPosition().x >= Scene::Width() -radius)
 	{
@@ -44,7 +40,7 @@ void ParachanSample::update() {
 }
 
 //parachanの画像に関係
-void ParachanSample::draw() {
+void ParachanSample::draw(){
 	const Texture CreditPicture(U"dog.png");
 	const Texture SecondPicture(U"cat.png");
 	const Texture ThirdPicture(U"mouse.png");
