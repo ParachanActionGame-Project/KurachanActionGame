@@ -5,16 +5,15 @@
 class ResultParachan {
 private:
 	Vec2 position;
-	double radius;
+	double size;
 	Vec2 velocity;
-	const String smallImage = U"Characters/Kurachan_1.png";
-	const String middleImage = U"Characters/Kurachan_2.png";
-	const String bigImage = U"Characters/Kurachan.png";
+	const Texture texture;
 
 public:
 	/* コンストラクタ */
-	ResultParachan(const Vec2 position, double radius, const Vec2 velocity);
-	ResultParachan(const Vec2 position, double radius);
+	ResultParachan(const Vec2 position, double size, const Vec2 velocity, String imagePath);
+	ResultParachan(const Vec2 position, double size, const Vec2 velocity);
+	ResultParachan(const Vec2 position, double size);
 
 	/* 毎フレームの値更新処理 */
 	void update();

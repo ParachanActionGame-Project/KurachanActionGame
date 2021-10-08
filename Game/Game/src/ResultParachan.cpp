@@ -1,9 +1,19 @@
-#include "ResultParachan.hpp"
+﻿#include "ResultParachan.hpp"
 
-ResultParachan::ResultParachan(const Vec2 position, double radius, const Vec2 velocity) {
+ResultParachan::ResultParachan(const Vec2 position, double size, const Vec2 velocity, String imagePath) :
+	texture(imagePath)
+{
 	this->position = position;
-	this->radius = radius;
+	this->size = size;
 	this->velocity = velocity;
+}
+
+ResultParachan::ResultParachan(const Vec2 position, double size, const Vec2 velocity)
+	: ResultParachan(position, size, velocity,
+		size > 41.0 ?
+		(size > 51.0 ? U"Characters/Kurachan.png" : U"Characters/Kurachan_2.png")
+		: U"Characters/Kurachan_1.png"
+	) {
 }
 
 ResultParachan::ResultParachan(const Vec2 position, double size)
@@ -12,11 +22,11 @@ ResultParachan::ResultParachan(const Vec2 position, double size)
 
 void ResultParachan::update() {
 	this->position += velocity * Scene::DeltaTime();
-	if (getPosition().x <= 0 + radius || getPosition().x >= Scene::Width() - radius)
+	if (getPosition().x <= 0 + size || getPosition().x >= Scene::Width() - size)
 	{
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() - radius)
+	if (getPosition().y <= 0 + size || getPosition().y >= Scene::Height() - size)
 	{
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
@@ -24,19 +34,8 @@ void ResultParachan::update() {
 
 void ResultParachan::draw() const {
 	String file;
-	//Texture picture;
-	//if (radius < 10.1) file = U"Characters/Kurachan_1.png";
-	/*if (radius < 10.1) file = U"cat.png";
-	if (radius < 20.1) file = U"Characters/Kurachan_2.png";
-	else file = U"Characters/Kurachan.png";*/
-	if (radius < 10.1) file = smallImage;
-	if (radius < 20.1) file = middleImage;
-	else file = bigImage;
-
-	Texture picture(file);
-	//const Texture picture(U"cat.png");
-	const Vec2 pos = position + Vec2(-radius * 2.3, -radius * 2.3);
-	picture.scaled(radius / 20).draw(pos);
+	const Vec2 pos = position + Vec2(-size * 2.3, -size * 2.3);
+	texture.scaled(size / 800).draw(pos);
 }
 
 Vec2 ResultParachan::getPosition() const {
@@ -44,7 +43,7 @@ Vec2 ResultParachan::getPosition() const {
 }
 
 double ResultParachan::getRadius() {
-	return radius;
+	return size;
 }
 
 Vec2 ResultParachan::getVelocity() const {

@@ -11,9 +11,9 @@ class ResultScene : public MyApp::Scene
 private:
 	std::vector<ResultParachan> parachans
 	{
-		ResultParachan(Scene::Center(), 10.0, Vec2(100.0, 50.0)), 
-		ResultParachan(Scene::Center() + Vec2(100.0, 0.0), 30.0, Vec2(0, 100.0)), 
-		ResultParachan(Scene::Center() + Vec2(-50.0, 50.0), 10.0, Vec2(-60.0, 80.0)) 
+		ResultParachan(Scene::Center(), 40.0, Vec2(100.0, 50.0)), 
+		ResultParachan(Scene::Center() + Vec2(100.0, 0.0), 50.0, Vec2(0, 100.0)), 
+		ResultParachan(Scene::Center() + Vec2(-50.0, 50.0), 60.0, Vec2(-60.0, 80.0)) 
 	};
 	//ResultParachan parachan = ResultParachan(Scene::Center(), 20.0, Vec2(100.0, 50.0));
 
