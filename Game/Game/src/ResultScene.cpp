@@ -61,7 +61,7 @@ void ResultScene::draw() const
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
 	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
-	m_tweetButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
+	m_tweetButton.draw(ColorF(1.0, m_tweetTransition.value())).drawFrame(2);
 
 	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"タイトルへ").drawAt(m_goTitleButton.center(), ColorF(0.25));
