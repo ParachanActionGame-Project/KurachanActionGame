@@ -13,6 +13,7 @@ void ResultScene::update()
 	m_startTransition.update(m_startButton.mouseOver());
 	m_goTitleTransition.update(m_goTitleButton.mouseOver());
 	m_exitTransition.update(m_exitButton.mouseOver());
+	m_tweetTransition.update(m_tweetButton.mouseOver());
 
 	if (m_startButton.mouseOver() || m_goTitleButton.mouseOver() || m_exitButton.mouseOver())
 	{
