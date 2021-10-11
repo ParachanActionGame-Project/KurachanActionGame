@@ -10,6 +10,7 @@ class ParaSampleScene : public MyApp::Scene
 private:
 	std::vector<ParachanSample> parachans;
 	int countClick = 0;
+	std::vector<Texture> textures;
 public:
 
 	ParaSampleScene(const InitData& init);
