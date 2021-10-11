@@ -22,11 +22,11 @@ ResultParachan::ResultParachan(const Vec2 position, EResultKurachan type)
 
 void ResultParachan::update() {
 	this->position += velocity * Scene::DeltaTime();
-	if (getPosition().x <= 0 || getPosition().x >= Scene::Width())
+	if (getPosition().x <= 0 + texture.width() / 2.0 * scale || getPosition().x >= Scene::Width() - texture.width() / 2.0 * scale)
 	{
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().y <= 0 || getPosition().y >= Scene::Height())
+	if (getPosition().y <= 0 + texture.height() / 2.0 * scale || getPosition().y >= Scene::Height() - texture.height() / 2.0 * scale)
 	{
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
@@ -51,6 +51,7 @@ void ResultParachan::initScale() {
 		this->scale = 1.0;
 		break;
 	default:
+		this->scale = 1.0;
 		break;
 	}
 	this->scale /= 40.0;
@@ -61,20 +62,16 @@ String ResultParachan::getTexturePath(EResultKurachan type) {
 	{
 	case VERY_BIG:
 		return U"Characters/Kurachan_8.png";
-		break;
 	case BIG:
 		return U"Characters/Kurachan_4.png";
-		break;
 	case MIDDLE:
 		return U"Characters/Kurachan.png";
-		break;
 	case SMALL:
 		return U"Characters/Kurachan_2.png";
-		break;
 	case VERY_SMALL:
 		return U"Characters/Kurachan_1.png";
-		break;
 	default:
+		return U"";
 		break;
 	}
 }
