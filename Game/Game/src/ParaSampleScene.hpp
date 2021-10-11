@@ -9,7 +9,7 @@ class ParaSampleScene : public MyApp::Scene
 {
 private:
 	std::vector<ParachanSample> parachans;
-
+	int countClick = 0;
 public:
 
 	ParaSampleScene(const InitData& init);
