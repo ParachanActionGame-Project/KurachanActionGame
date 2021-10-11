@@ -1,7 +1,7 @@
 ﻿
 # pragma once
 # include "Common.hpp"
-# include "ResultParachan.hpp"
+# include "ResultKurachan.hpp"
 # include <vector>
 
 using namespace result;
@@ -11,13 +11,12 @@ using namespace result;
 class ResultScene : public MyApp::Scene
 {
 private:
-	std::vector<ResultParachan> parachans
+	std::vector<ResultKurachan> parachans
 	{
-		ResultParachan(Scene::Center(), SMALL, Vec2(100.0, 50.0)), 
-		ResultParachan(Scene::Center() + Vec2(100.0, 0.0), MIDDLE, Vec2(0, 100.0)), 
-		ResultParachan(Scene::Center() + Vec2(-50.0, 50.0), BIG, Vec2(-60.0, 80.0)) 
+		ResultKurachan(Scene::Center(), SMALL, Vec2(100.0, 50.0)), 
+		ResultKurachan(Scene::Center() + Vec2(100.0, 0.0), MIDDLE, Vec2(0, 100.0)), 
+		ResultKurachan(Scene::Center() + Vec2(-50.0, 50.0), BIG, Vec2(-60.0, 80.0)) 
 	};
-	//ResultParachan parachan = ResultParachan(Scene::Center(), 20.0, Vec2(100.0, 50.0));
 
 	Rect m_startButton = Rect(Arg::center = Scene::Center().movedBy(0, 80), 300, 60);
 	Transition m_startTransition = Transition(0.4s, 0.2s);

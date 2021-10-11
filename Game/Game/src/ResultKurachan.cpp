@@ -1,8 +1,8 @@
-﻿#include "ResultParachan.hpp"
+﻿#include "ResultKurachan.hpp"
 
 using namespace result;
 
-ResultParachan::ResultParachan(const Vec2 position, EResultKurachan type, const Vec2 velocity, String imagePath) :
+ResultKurachan::ResultKurachan(const Vec2 position, EResultKurachan type, const Vec2 velocity, String imagePath) :
 	texture(imagePath)
 {
 	this->position = position;
@@ -11,16 +11,16 @@ ResultParachan::ResultParachan(const Vec2 position, EResultKurachan type, const 
 	initScale();
 }
 
-ResultParachan::ResultParachan(const Vec2 position, EResultKurachan type, const Vec2 velocity)
-	: ResultParachan(position, type, velocity, getTexturePath(type))
+ResultKurachan::ResultKurachan(const Vec2 position, EResultKurachan type, const Vec2 velocity)
+	: ResultKurachan(position, type, velocity, getTexturePath(type))
 {
 }
 
-ResultParachan::ResultParachan(const Vec2 position, EResultKurachan type)
-	: ResultParachan(position, type, Vec2(0.0, 0.0)) {
+ResultKurachan::ResultKurachan(const Vec2 position, EResultKurachan type)
+	: ResultKurachan(position, type, Vec2(0.0, 0.0)) {
 }
 
-void ResultParachan::update() {
+void ResultKurachan::update() {
 	this->position += velocity * Scene::DeltaTime();
 	if (getPosition().x <= 0 + texture.width() / 2.0 * scale || getPosition().x >= Scene::Width() - texture.width() / 2.0 * scale)
 	{
@@ -32,7 +32,7 @@ void ResultParachan::update() {
 	}
 }
 
-void ResultParachan::initScale() {
+void ResultKurachan::initScale() {
 	switch (type)
 	{
 	case VERY_BIG:
@@ -57,7 +57,7 @@ void ResultParachan::initScale() {
 	this->scale /= 40.0;
 }
 
-String ResultParachan::getTexturePath(EResultKurachan type) {
+String ResultKurachan::getTexturePath(EResultKurachan type) {
 	switch (type)
 	{
 	case VERY_BIG:
@@ -76,18 +76,18 @@ String ResultParachan::getTexturePath(EResultKurachan type) {
 	}
 }
 
-void ResultParachan::draw() const {
+void ResultKurachan::draw() const {
 	texture.scaled(scale).drawAt(position);
 }
 
-Vec2 ResultParachan::getPosition() const {
+Vec2 ResultKurachan::getPosition() const {
 	return this->position;
 }
 
-double ResultParachan::getScale() {
+double ResultKurachan::getScale() {
 	return scale;
 }
 
-Vec2 ResultParachan::getVelocity() const {
+Vec2 ResultKurachan::getVelocity() const {
 	return velocity;
 }

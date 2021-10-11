@@ -15,8 +15,8 @@ namespace result {
 
 using namespace result;
 
-/* リザルト画面に映すぱらちゃん。ゲームシーンのぱらちゃん実装まで仮実装 */
-class ResultParachan {
+/* リザルト画面に映すくらちゃん。 */
+class ResultKurachan {
 private:
 	Vec2 position;
 	EResultKurachan type;
@@ -29,9 +29,9 @@ private:
 
 public:
 	/* コンストラクタ */
-	ResultParachan(const Vec2 position, EResultKurachan type, const Vec2 velocity, String imagePath);
-	ResultParachan(const Vec2 position, EResultKurachan type, const Vec2 velocity);
-	ResultParachan(const Vec2 position, EResultKurachan type);
+	ResultKurachan(const Vec2 position, EResultKurachan type, const Vec2 velocity, String imagePath);
+	ResultKurachan(const Vec2 position, EResultKurachan type, const Vec2 velocity);
+	ResultKurachan(const Vec2 position, EResultKurachan type);
 
 	/* 毎フレームの値更新処理 */
 	void update();
