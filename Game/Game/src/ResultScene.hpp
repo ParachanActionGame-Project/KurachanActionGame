@@ -4,6 +4,8 @@
 # include "ResultParachan.hpp"
 # include <vector>
 
+using namespace result;
+
 // リザルトシーン
 // ぱらちゃんを1匹泳がせる。等速直線運動で、スクリーン端で跳ね返る
 class ResultScene : public MyApp::Scene
@@ -11,9 +13,9 @@ class ResultScene : public MyApp::Scene
 private:
 	std::vector<ResultParachan> parachans
 	{
-		ResultParachan(Scene::Center(), 40.0, Vec2(100.0, 50.0)), 
-		ResultParachan(Scene::Center() + Vec2(100.0, 0.0), 50.0, Vec2(0, 100.0)), 
-		ResultParachan(Scene::Center() + Vec2(-50.0, 50.0), 60.0, Vec2(-60.0, 80.0)) 
+		ResultParachan(Scene::Center(), SMALL, Vec2(100.0, 50.0)), 
+		ResultParachan(Scene::Center() + Vec2(100.0, 0.0), MIDDLE, Vec2(0, 100.0)), 
+		ResultParachan(Scene::Center() + Vec2(-50.0, 50.0), BIG, Vec2(-60.0, 80.0)) 
 	};
 	//ResultParachan parachan = ResultParachan(Scene::Center(), 20.0, Vec2(100.0, 50.0));
 
