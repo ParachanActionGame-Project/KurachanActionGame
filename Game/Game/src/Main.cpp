@@ -32,6 +32,8 @@ void Main()
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
 	FontAsset::Register(U"ParaSampleScene", 36, Typeface::Bold);
 	FontAsset::Register(U"CreditScene", 36, Typeface::Bold);
+	//FontAsset::Register(U"LL",36,);
+
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
@@ -39,7 +41,7 @@ void Main()
 		.add<Start>(State::Start)
 		.add<ParaSampleScene>(State::ParaSample)
 		.add<CreditScene>(State::Credit)
-		.add<Title>(State::Title)
+		//.add<Title>(State::Title)
 		.add<Game>(State::Game)
 		.setFadeColor(ColorF(1.0));
 	    
@@ -48,6 +50,8 @@ void Main()
 
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
+
+	Window::Resize(Size(1280,720));
 
 	while (System::Update())
 	{
