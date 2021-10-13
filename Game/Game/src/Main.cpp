@@ -11,9 +11,11 @@
 # include "Common.hpp"
 # include "CreditScene.hpp"
 # include "Title.hpp"
+# include "Rule.hpp"
 # include "Game.hpp"
 # include "Start.hpp"
 # include "ParaSampleScene.hpp"
+# include "ResultScene.hpp"
 
 void Main()
 {
@@ -39,10 +41,12 @@ void Main()
 	MyApp manager;
 	manager
 		.add<Start>(State::Start)
+		.add<Rule>(State::Rule)
 		.add<ParaSampleScene>(State::ParaSample)
 		.add<CreditScene>(State::Credit)
 		//.add<Title>(State::Title)
 		.add<Game>(State::Game)
+		.add<ResultScene>(State::Result)
 		.setFadeColor(ColorF(1.0));
 	    
 
