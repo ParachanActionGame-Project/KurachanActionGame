@@ -63,7 +63,7 @@ void ParachanSample::draw() {
 	else if (getRadius() >= 20)
 		texture_2.scaled(radius / 800).drawAt(position);
 	else
-		texture_1.scaled(radius / 200).drawAt(position);
+		texture_1.scaled(radius / 300).drawAt(position);
 }
 
 Vec2 ParachanSample::getPosition() const {

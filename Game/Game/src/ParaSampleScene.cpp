@@ -27,20 +27,42 @@ ParaSampleScene::ParaSampleScene(const InitData& init)
 void ParaSampleScene::update()
 {	
 	checkMouseClick();
+	checkMouseOver();
 	for (int i = 0; i < parachans.size(); i++) {
 		parachans[i].update();
 	}
 }
 
+void ParaSampleScene::checkMouseOver()
+{
+	Vec2 mousePos = Cursor::PosF();
+	for(int i = 0; i < parachans.size(); i++)
+	{
+		if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius())
+			Cursor::RequestStyle(CursorStyle::Hand);
+	}
+}
+
 void ParaSampleScene::checkMouseClick() {
 	if (MouseL.down()) {
-		//マウスの位置を代入
 		Vec2 mousePos = Cursor::PosF();
 		for (int i = 0; i < parachans.size(); i++) {
+			//マウスの位置を代入
+			Vec2 mousePos = Cursor::PosF();
 			if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius()&&parachans[i].getRadius()>10) {
-				countClick++;
+				//point
+				countClick += 1;
+				if (parachans[i].getRadius() > 80)
+					countScore += 20;
+				else if (parachans[i].getRadius() > 40)
+					countScore += 20;
+				else if (parachans[i].getRadius() > 20)
+					countScore += 40;
+				else
+					countScore += 80;
+
 				this->getData().highScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
-				std::cout << "現在のスコア: " << this->getData().highScore << std::endl;
+				//std::cout << "score"+countScore << this->getData().highScore << std::endl;
 					double r = parachans[i].getRadius() / 2.0;
 				if(r<20)
 					double r = 15;
@@ -55,9 +77,14 @@ void ParaSampleScene::checkMouseClick() {
 					parachans[i].getPosition() - Vec2(r, 0.0), r, Vec2(-direction_x, -direction_y),textures[0], textures[1], textures[2], textures[3], textures[4]));
 				parachans.push_back(ParachanSample(
 					parachans[i].getPosition() + Vec2(r, 0.0), r, Vec2(direction_x, direction_y), textures[0], textures[1], textures[2], textures[3], textures[4]));
+				//std::cout << c << std::endl;
 				parachans.erase(parachans.begin() + i);
-				if (countClick>16)
-					parachans.erase(parachans.begin()+Random(15));
+				if (countClick > 32)
+				{
+					parachans.erase(parachans.begin()+Random(30));
+					countClick = 32;
+					
+				}
 				return;
 			}
 		}
@@ -74,5 +101,6 @@ void ParaSampleScene::draw() const
 	//パラちゃんの描画
 	for (ParachanSample parachan : parachans) {
 		parachan.draw();
+		FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Width() - 100, Scene::Height() - 80);
 	}
 }
