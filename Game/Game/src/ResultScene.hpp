@@ -15,7 +15,9 @@ private:
 	{
 		ResultKurachan(Scene::Center(), SMALL, Vec2(100.0, 50.0)), 
 		ResultKurachan(Scene::Center() + Vec2(100.0, 0.0), MIDDLE, Vec2(0, 100.0)), 
-		ResultKurachan(Scene::Center() + Vec2(-50.0, 50.0), BIG, Vec2(-60.0, 80.0)) 
+		ResultKurachan(Scene::Center() + Vec2(-50.0, 50.0), BIG, Vec2(-60.0, 80.0)), 
+		ResultKurachan(Scene::Center() + Vec2(-100.0, 100.0), VERY_SMALL, Vec2(50.0, 30.0)), 
+		ResultKurachan(Scene::Center() + Vec2(200.0, -50.0), VERY_BIG, Vec2(-20.0, -60.0)) 
 	};
 
 	Rect m_startButton = Rect(Arg::center = Scene::Center().movedBy(0, 80), 300, 60);
