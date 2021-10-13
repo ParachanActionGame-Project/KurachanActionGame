@@ -48,7 +48,7 @@ void ResultKurachan::initScale() {
 		this->scale = 1.5;
 		break;
 	case VERY_SMALL:
-		this->scale = 1.0;
+		this->scale = 2.0;
 		break;
 	default:
 		this->scale = 1.0;
