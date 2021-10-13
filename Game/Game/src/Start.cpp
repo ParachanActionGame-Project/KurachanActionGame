@@ -34,7 +34,7 @@ void Start::update()
 	}
 	if (m_ruleButton.leftClicked()) 
 	{
-		changeScene(State::ParaSample);/*ファイルの名前じゃなくて, Common.hpp
+		changeScene(State::Rule);/*ファイルの名前じゃなくて, Common.hpp
 		の中にあるStateのとこの名前*/
 	}
 	if (m_creditButton.leftClicked()) 
