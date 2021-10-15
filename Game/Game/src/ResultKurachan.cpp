@@ -22,12 +22,24 @@ ResultKurachan::ResultKurachan(const Vec2 position, EResultKurachan type)
 
 void ResultKurachan::update() {
 	this->position += velocity * Scene::DeltaTime();
-	if (getPosition().x <= 0 + texture.width() / 2.0 * scale || getPosition().x >= Scene::Width() - texture.width() / 2.0 * scale)
+	if (getPosition().x <= 0 + texture.width() / 2.0 * scale) 
 	{
+		this->position.x = texture.width() / 2.0 * scale;
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().y <= 0 + texture.height() / 2.0 * scale || getPosition().y >= Scene::Height() - texture.height() / 2.0 * scale)
+	if (getPosition().x >= Scene::Width() - texture.width() / 2.0 * scale)
 	{
+		this->position.x = Scene::Width() - texture.width() / 2.0 * scale;
+		this->velocity = Vec2(-velocity.x, velocity.y);
+	}
+	if (getPosition().y <= 0 + texture.height() / 2.0 * scale) 
+	{
+		this->position.y = texture.height() / 2.0 * scale;
+		this->velocity = Vec2(velocity.x, -velocity.y);
+	}
+	if (getPosition().y >= Scene::Height() - texture.height() / 2.0 * scale)
+	{
+		this->position.y = Scene::Height() - texture.height() / 2.0 * scale;
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
 }
