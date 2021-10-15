@@ -73,15 +73,15 @@ String ResultKurachan::getTexturePath(EResultKurachan type) {
 	switch (type)
 	{
 	case VERY_BIG:
-		return U"Characters/Kurachan_8.png";
+		return U"Characters/Kurachan_8_crop.png";
 	case BIG:
-		return U"Characters/Kurachan_4.png";
+		return U"Characters/Kurachan_4_crop.png";
 	case MIDDLE:
-		return U"Characters/Kurachan.png";
+		return U"Characters/Kurachan_crop.png";
 	case SMALL:
-		return U"Characters/Kurachan_2.png";
+		return U"Characters/Kurachan_2_crop.png";
 	case VERY_SMALL:
-		return U"Characters/Kurachan_1.png";
+		return U"Characters/Kurachan_1_crop.png";
 	default:
 		return U"";
 		break;
