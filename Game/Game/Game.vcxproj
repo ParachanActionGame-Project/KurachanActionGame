@@ -243,6 +243,7 @@
     <ClCompile Include="src\ParachanSample.cpp" />
     <ClCompile Include="src\ParaSampleScene.cpp" />
     <ClCompile Include="src\Title.cpp" />
+    <ClCompile Include="src\Start.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.hpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="src\ParachanSample.hpp" />
     <ClInclude Include="src\ParaSampleScene.hpp" />
     <ClInclude Include="src\Title.hpp" />
+    <ClInclude Include="src\Start.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,7 +10,7 @@ Title::Title(const InitData& init)
 void Title::update()
 {
 	m_startTransition.update(m_startButton.mouseOver());
-	m_exitTransition.update(m_exitButton.mouseOver());
+	m_exitTransition.update(m_exitButton.mouseOver());	
 
 	if (m_startButton.mouseOver() || m_exitButton.mouseOver())
 	{
