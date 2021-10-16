@@ -92,7 +92,7 @@ void ParaSampleScene::checkMouseClick() {
 				if (Timer.sF() > 60)
 				{
 					if(countClick==32)
-						for (int i = 0; i < 33; i++)
+						for (int i = 0; i < 3; i++)
 						{
 							parachans.erase(parachans.begin());
 						}
