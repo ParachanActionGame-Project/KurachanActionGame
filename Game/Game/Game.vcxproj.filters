@@ -400,7 +400,7 @@
     <ClCompile Include="src\ResultScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ResultParachan.cpp">
+    <ClCompile Include="src\ResultKurachan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -432,7 +432,7 @@
     <ClInclude Include="src\ResultScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ResultParachan.hpp">
+    <ClInclude Include="src\ResultKurachan.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

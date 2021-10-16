@@ -13,6 +13,7 @@ void ResultScene::update()
 	m_startTransition.update(m_startButton.mouseOver());
 	m_goTitleTransition.update(m_goTitleButton.mouseOver());
 	m_exitTransition.update(m_exitButton.mouseOver());
+	m_tweetTransition.update(m_tweetButton.mouseOver());
 
 	if (m_startButton.mouseOver() || m_goTitleButton.mouseOver() || m_exitButton.mouseOver())
 	{
@@ -36,15 +37,21 @@ void ResultScene::update()
 	}
 
 	if (m_tweetButton.leftClicked()) {
-		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #ParachanActionGame");
+		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #KurachanActionGame");
 	}
 
-	// ぱらちゃんの移動処理はupdateの実装に依存する
-	parachan.update();
+	for (int i = 0; i < parachans.size(); i++) {
+		parachans[i].update();
+	}
 }
 
 void ResultScene::draw() const
 {
+	for (int i = 0; i < parachans.size(); i++) {
+		//std::cout << parachans[i].getPosition() << " " << parachans[i].getVelocity() << std::endl;
+		parachans[i].draw();
+	}
+
 	const String titleText = U"けっか";
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"Title")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
@@ -55,7 +62,7 @@ void ResultScene::draw() const
 	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
 	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
 	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
-	m_tweetButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
+	m_tweetButton.draw(ColorF(1.0, m_tweetTransition.value())).drawFrame(2);
 
 	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"タイトルへ").drawAt(m_goTitleButton.center(), ColorF(0.25));
@@ -64,9 +71,6 @@ void ResultScene::draw() const
 
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
-
-	// ぱらちゃんの描画処理はdrawの実装に依存する
-	parachan.draw();
 }
 
 void ResultScene::writeHighScore() 
