@@ -91,10 +91,11 @@ void ParaSampleScene::checkMouseClick() {
 				}
 				if (Timer.sF() > 60)
 				{
-					for (int i = 0; i < 32; i++)
-					{
-						parachans.erase(parachans.begin());
-					}
+					if(countClick==32)
+						for (int i = 0; i < 33; i++)
+						{
+							parachans.erase(parachans.begin());
+						}
 				}
 				return;
 			}
@@ -113,9 +114,10 @@ void ParaSampleScene::draw() const
 	//パラちゃんの描画
 	for (ParachanSample parachan : parachans) {
 		parachan.draw();
-		if (timeLeft > 60)
+		if (timeLeft < 0)
 		{
-			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Center());
+			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Center().x, 200);
+			FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y - 1000);
 		}
 		else
 		{
