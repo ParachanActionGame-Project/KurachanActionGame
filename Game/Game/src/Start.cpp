@@ -1,4 +1,4 @@
-# include "Start.hpp"
+ï»¿# include "Start.hpp"
 
 Start::Start(const InitData& init)
 	: IScene(init), TitleScene(U"./StartScenef.png")
@@ -25,7 +25,7 @@ void Start::update()
 
 	if (m_startButton.leftClicked())
 	{
-		changeScene(State::Game);//ó‘Ô‚ğ•ÏX@
+		changeScene(State::Game);//çŠ¶æ…‹ã‚’å¤‰æ›´ã€€
 	}
 
 	if (m_exitButton.leftClicked())
@@ -34,8 +34,8 @@ void Start::update()
 	}
 	if (m_ruleButton.leftClicked()) 
 	{
-		changeScene(State::Rule);/*ƒtƒ@ƒCƒ‹‚Ì–¼‘O‚¶‚á‚È‚­‚Ä, Common.hpp
-		‚Ì’†‚É‚ ‚éState‚Ì‚Æ‚±‚Ì–¼‘O*/
+		changeScene(State::Rule);/*ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ã˜ã‚ƒãªãã¦, Common.hpp
+		ã®ä¸­ã«ã‚ã‚‹Stateã®ã¨ã“ã®åå‰*/
 	}
 	if (m_creditButton.leftClicked()) 
 	{
@@ -46,25 +46,26 @@ void Start::draw() const
 {
 	TitleScene.draw(0, 0);
 	//TitleScene.scaled(0.5).drawAt(Scene::Center());
-	const String titleText = U"ParachanActionGame"; //ƒ[ƒuƒƒbƒN‚­‚¸‚µ
+	const String titleText = U"ParachanActionGame"; //ï¼œãƒ¼ãƒ–ãƒ­ãƒƒã‚¯ããšã—
 	const Vec2 center(Scene::Center().x, 120);
 	FontAsset(U"Start")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"Start")(titleText).drawAt(center);
 
-	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
-	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
-	m_ruleButton.draw(ColorF(1.0, m_ruleTransition.value())).drawFrame(2);
-	m_creditButton.draw(ColorF(1.0, m_creditTransition.value())).drawFrame(2);
+	m_startButton.draw(ColorF(0.0, m_startTransition.value())).drawFrame(2);
+	m_exitButton.draw(ColorF(0.0, m_exitTransition.value())).drawFrame(2);
+	m_ruleButton.draw(ColorF(0.0, m_ruleTransition.value())).drawFrame(2);
+	m_creditButton.draw(ColorF(0.0, m_creditTransition.value())).drawFrame(2);
 	/// <summary>
 	/// </summary>
-	FontAsset(U"Score")(U"ƒQ[ƒ€ƒXƒ^[ƒgI").drawAt(m_startButton.center(), Color(0, 0, 0));
-	FontAsset(U"Score")(U"‚¨‚í‚é").drawAt(m_exitButton.center(), Color(0, 0, 0));
-	FontAsset(U"Score")(U"ƒ‹[ƒ‹à–¾").drawAt(m_ruleButton.center(), Color(0, 0, 0));
-	FontAsset(U"Score")(U"ƒNƒŒƒWƒbƒg").drawAt(m_creditButton.center(), Color(0,0,0));
+	FontAsset(U"Score")(U"ã‚²ãƒ¼ãƒ ã‚¹ã‚¿ãƒ¼ãƒˆï¼").drawAt(m_startButton.center(), Color(255,255,255));
+	FontAsset(U"Score")(U"ãŠã‚ã‚‹").drawAt(m_exitButton.center(), Color(255,255,255));
+	FontAsset(U"Score")(U"ãƒ«ãƒ¼ãƒ«èª¬æ˜").drawAt(m_ruleButton.center(), Color(255, 255, 255));
+	FontAsset(U"Score")(U"ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆ").drawAt(m_creditButton.center(), Color(255, 255, 255));
 	
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
+		//.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
 
 	const int32 highScore = getData().highScore;
-	FontAsset(U"Score")(U"High score: {}"_fmt(highScore)).drawAt(Vec2(1000/*620*/, 650/*550*/),Color(0,0,0));
+	FontAsset(U"Score")(U"High score: {}"_fmt(highScore)).drawAt(Vec2(1000/*620*/, 650/*550*/),Color(255,255,255));
 }

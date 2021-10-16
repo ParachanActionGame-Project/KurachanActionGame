@@ -1,7 +1,7 @@
-# pragma once
+ï»¿# pragma once
 # include "Common.hpp"
 
-// ƒ^ƒCƒgƒ‹ƒV[ƒ“
+// ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³
 class Start : public MyApp::Scene
 {
 private:
@@ -10,8 +10,8 @@ private:
 	Transition m_startTransition = Transition(0.4s, 0.2s);
 
 	Rect m_exitButton = Rect(Arg::center = Scene::Center().movedBy(0, 110), 300, 60);
-	Transition m_exitTransition = Transition(0.4s, 0.2s);//(Å‘å’lAÅ¬’l)
-	/////////////////////////////////////////////////////////////////’Ç‰Á 
+	Transition m_exitTransition = Transition(0.4s, 0.2s);//(æœ€å¤§å€¤ã€æœ€å°å€¤)
+	/////////////////////////////////////////////////////////////////è¿½åŠ  
 	
 
 	Rect m_ruleButton = Rect(Arg::center = Scene::Center().movedBy(0, 190), 300, 60);
