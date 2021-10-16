@@ -12,6 +12,8 @@ private:
 	int countClick = 0;
 	int countScore = 0;
 	std::vector<Texture> textures;
+	Audio SE,BGM;
+	Stopwatch Timer;
 public:
 
 	ParaSampleScene(const InitData& init);

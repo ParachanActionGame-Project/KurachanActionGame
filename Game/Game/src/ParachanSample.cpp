@@ -33,7 +33,7 @@ void ParachanSample::update() {
 	{
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
-	if (countTime.sF() > 5)
+	if (countTime.sF() > 3)
 	{
 		if (getRadius() < 20)
 		{
