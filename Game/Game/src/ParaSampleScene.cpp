@@ -8,19 +8,19 @@ ParaSampleScene::ParaSampleScene(const InitData& init)
 	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true)
 {
 	Window::Resize(Size(1280, 720));
-	//下の第二引数現在は160がradius
-	Texture a(U"Characters/Kurachan.png");
-	Texture b(U"Characters/Kurachan_8.png");
-	Texture c(U"Characters/Kurachan_4.png");
-	Texture d(U"Characters/Kurachan_2.png");
-	Texture e(U"Characters/Kurachan_1.png");
+
+	Texture a(U"Characters/Kurachan_crop.png");
+	Texture b(U"Characters/Kurachan_8_crop.png");
+	Texture c(U"Characters/Kurachan_4_crop.png");
+	Texture d(U"Characters/Kurachan_2_crop.png");
+	Texture e(U"Characters/Kurachan_1_crop.png");
 	textures.push_back(a);
 	textures.push_back(b);
 	textures.push_back(c);
 	textures.push_back(d);
 	textures.push_back(e);
 	BGM.play();
-	
+	//下の第二引数現在は160がradius
 	parachans.push_back(ParachanSample(Scene::Center(), 160.0, a, b, c, d, e));
 }
 
@@ -30,6 +30,10 @@ void ParaSampleScene::update()
 	checkMouseOver();
 	for (int i = 0; i < parachans.size(); i++) {
 		parachans[i].update();
+	}
+	if (Timer.sF() >= 60)
+	{
+		changeScene(State::Result);
 	}
 }
 
@@ -53,7 +57,7 @@ void ParaSampleScene::checkMouseClick() {
 				//point
 				countClick += 1;
 				if (parachans[i].getRadius() > 80)
-					countScore += 20;
+					countScore += 10;
 				else if (parachans[i].getRadius() > 40)
 					countScore += 20;
 				else if (parachans[i].getRadius() > 20)
@@ -61,7 +65,7 @@ void ParaSampleScene::checkMouseClick() {
 				else
 					countScore += 80;
 				SE.play();
-				if (parachans[i].getRadius() > 80)
+				if (countClick==1)
 				{
 					Timer.restart();
 				}
@@ -91,8 +95,8 @@ void ParaSampleScene::checkMouseClick() {
 				}
 				if (Timer.sF() > 60)
 				{
-					if(countClick==32)
-						for (int i = 0; i < 3; i++)
+					if(countClick>=32)
+						for (int i = 0; i < 33; i++)
 						{
 							parachans.erase(parachans.begin());
 						}
@@ -108,8 +112,8 @@ void ParaSampleScene::draw() const
 	Profiler::EnableAssetCreationWarning(false);
 	const String titleText = U"サンプルゲーム";
 	const Vec2 center(Scene::Center().x, 120);
-	FontAsset(U"ParaSampleScene")(titleText).drawAt(center.movedBy(2, 3), ColorF(0.0, 0.5));
-	FontAsset(U"ParaSampleScene")(titleText).drawAt(center);
+	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center.movedBy(2, 3), ColorF(0.0, 0.5));
+	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center);
 	double timeLeft = 60-Timer.sF();
 	//パラちゃんの描画
 	for (ParachanSample parachan : parachans) {
@@ -118,11 +122,15 @@ void ParaSampleScene::draw() const
 		{
 			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Center().x, 200);
 			FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y - 1000);
+			getData().currentScore=countScore;
 		}
 		else
 		{
 			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Width() - 100, Scene::Height() - 80);
-			FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y+300);
+			if(countClick>=1)
+				FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y + 300);
+			else
+				FontAsset(U"ParaSampleScene")(60).drawAt(Scene::Center().x, Scene::Center().y + 300);
 		}
 	}
 }

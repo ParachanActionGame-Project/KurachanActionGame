@@ -25,14 +25,35 @@ ParachanSample::ParachanSample(const Vec2 position, double radius,Texture textur
 	
 void ParachanSample::update() {
 	this->position += velocity * Scene::DeltaTime();
-	if (getPosition().x <= 0 + radius || getPosition().x >= Scene::Width() -radius)
+	/*if (getPosition().x <= 0 + radius || getPosition().x >= Scene::Width() - radius)
 	{
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
 	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() -radius)
 	{
 		this->velocity = Vec2(velocity.x, -velocity.y);
+	}*/
+	if (getPosition().x <= 0 + texture.width() / radius/800)
+	{
+		this->position.x = texture.width() / radius/800;
+		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
+	if (getPosition().x >= Scene::Width() - texture.width() / radius/800)
+	{
+		this->position.x = Scene::Width() - texture.width() / radius/800;
+		this->velocity = Vec2(-velocity.x, velocity.y);
+	}
+	if (getPosition().y <= 0 + texture.height() / radius/800)
+	{
+		this->position.y = texture.height() / radius/800;
+		this->velocity = Vec2(velocity.x, -velocity.y);
+	}
+	if (getPosition().y >= Scene::Height() - texture.height() / radius/800)
+	{
+		this->position.y = Scene::Height() - texture.height() / radius/800;
+		this->velocity = Vec2(velocity.x, -velocity.y);
+	}
+
 	if (countTime.sF() > 3)
 	{
 		if (getRadius() < 20)
@@ -48,6 +69,11 @@ void ParachanSample::update() {
 		else if (getRadius() < 80)
 		{
 			setRadius(80);
+			countTime.restart();
+		}
+		else if (getRadius() < 160)
+		{
+			setRadius(160);
 		}
 	}
 }
