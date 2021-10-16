@@ -382,6 +382,9 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Start.cpp">
+	  <Filter>Source Files</Filter>
+	</ClCompile>
     <ClCompile Include="src\Rule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -397,7 +400,7 @@
     <ClCompile Include="src\ResultScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ResultParachan.cpp">
+    <ClCompile Include="src\ResultKurachan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -411,6 +414,9 @@
     <ClInclude Include="src\Common.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Start.hpp">
+	  <Filter>Header Files</Filter>
+	</ClInclude>
     <ClInclude Include="src\Rule.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -426,7 +432,7 @@
     <ClInclude Include="src\ResultScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ResultParachan.hpp">
+    <ClInclude Include="src\ResultKurachan.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

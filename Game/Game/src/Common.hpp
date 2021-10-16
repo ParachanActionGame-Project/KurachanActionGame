@@ -6,11 +6,14 @@
 enum class State
 {
 	Title,
-	Rule,
+
+	Game,
+
+	Start,
 	ParaSample,
 	Credit,
+	Rule,
 	Result,
-	Game
 };
 
 // ゲームデータ

@@ -237,23 +237,25 @@
     <ClCompile Include="src\CreditScene.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\ResultParachan.cpp" />
+    <ClCompile Include="src\ResultKurachan.cpp" />
     <ClCompile Include="src\ResultScene.cpp" />
     <ClCompile Include="src\Rule.cpp" />
     <ClCompile Include="src\ParachanSample.cpp" />
     <ClCompile Include="src\ParaSampleScene.cpp" />
     <ClCompile Include="src\Title.cpp" />
+    <ClCompile Include="src\Start.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Common.hpp" />
     <ClInclude Include="src\CreditScene.hpp" />
     <ClInclude Include="src\Game.hpp" />
-    <ClInclude Include="src\ResultParachan.hpp" />
+    <ClInclude Include="src\ResultKurachan.hpp" />
     <ClInclude Include="src\ResultScene.hpp" />
     <ClInclude Include="src\Rule.hpp" />
     <ClInclude Include="src\ParachanSample.hpp" />
     <ClInclude Include="src\ParaSampleScene.hpp" />
     <ClInclude Include="src\Title.hpp" />
+    <ClInclude Include="src\Start.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
