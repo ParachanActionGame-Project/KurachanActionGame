@@ -13,6 +13,7 @@ private:
 	int countScore = 0;
 	std::vector<Texture> textures;
 	Audio SE,BGM;
+	Texture BackGround;
 	Stopwatch Timer;
 public:
 

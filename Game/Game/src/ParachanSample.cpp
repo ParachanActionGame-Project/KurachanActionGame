@@ -29,32 +29,32 @@ void ParachanSample::update() {
 	{
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() -radius)
+	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() - radius)
 	{
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}*/
-	if (getPosition().x <= 0 + texture.width() / radius/800)
+	if (getPosition().x <= 0 + texture.width() * checkSizeW())
 	{
-		this->position.x = texture.width() / radius/800;
+		this->position.x = texture.width() * checkSizeW();
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().x >= Scene::Width() - texture.width() / radius/800)
+	if (getPosition().x >= Scene::Width() - texture.width() * checkSizeW())
 	{
-		this->position.x = Scene::Width() - texture.width() / radius/800;
+		this->position.x = Scene::Width() - texture.width() * checkSizeW();
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
-	if (getPosition().y <= 0 + texture.height() / radius/800)
+	if (getPosition().y <= 0 + texture.height() * checkSizeH())
 	{
-		this->position.y = texture.height() / radius/800;
+		this->position.y = texture.height() * checkSizeH();
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
-	if (getPosition().y >= Scene::Height() - texture.height() / radius/800)
+	if (getPosition().y >= Scene::Height() - texture.height() * checkSizeH())
 	{
-		this->position.y = Scene::Height() - texture.height() / radius/800;
+		this->position.y = Scene::Height() - texture.height() * checkSizeH();
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
 
-	if (countTime.sF() > 3)
+	if (countTime.sF() > 5)
 	{
 		if (getRadius() < 20)
 		{
@@ -108,4 +108,36 @@ void ParachanSample::setRadius(double x)
 {
 	radius = x;
 	return;
+}
+
+double ParachanSample::checkSizeW()
+{
+	double a;
+	if (getRadius() >= 160)
+		a = 4;
+	else if (getRadius() >= 80)
+		a = 6.5;
+	else if (getRadius() >= 40)
+		a = 3;
+	else if (getRadius() >= 20)
+		a = 0.75;
+	else
+		a = 0.5;
+	return a;
+}
+
+double ParachanSample::checkSizeH()
+{
+	double a;
+	if (getRadius() >= 160)
+		a = 8;
+	else if (getRadius() >= 80)
+		a = 3;
+	else if (getRadius() >= 40)
+		a = 1.5;
+	else if (getRadius() >= 20)
+		a = 1;
+	else
+		a = 0.75;
+	return a;
 }

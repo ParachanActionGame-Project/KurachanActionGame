@@ -31,4 +31,7 @@ public:
 	
 	//setter
 	void setRadius(double x);
+
+	double checkSizeW();
+	double checkSizeH();
 };

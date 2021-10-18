@@ -5,7 +5,7 @@
 #include <vector>
 
 ParaSampleScene::ParaSampleScene(const InitData& init)
-	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true)
+	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"StartScenef.png")
 {
 	Window::Resize(Size(1280, 720));
 
@@ -114,7 +114,8 @@ void ParaSampleScene::draw() const
 	const Vec2 center(Scene::Center().x, 120);
 	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center.movedBy(2, 3), ColorF(0.0, 0.5));
 	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center);
-	double timeLeft = 60-Timer.sF();
+	BackGround.draw(0,0);
+	double timeLeft = 60 - Timer.sF();
 	//パラちゃんの描画
 	for (ParachanSample parachan : parachans) {
 		parachan.draw();
