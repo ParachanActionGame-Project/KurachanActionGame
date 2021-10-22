@@ -2,7 +2,7 @@
 # include "Rule.hpp"
 
 Rule::Rule(const InitData& init)
-	: IScene(init)
+	: IScene(init), rulePhoto(U"あそびかた.png")
 {
 
 }
@@ -33,7 +33,6 @@ void Rule::draw() const
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
 
-	const Texture Rulephoto(U"Rulephoto2.jpg");
-	Rulephoto.resized(750).drawAt(center.movedBy(0,100));
+	rulePhoto.resized(770).drawAt(center.movedBy(0,112.5));
 	Profiler::EnableAssetCreationWarning(false);
 }
