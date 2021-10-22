@@ -6,10 +6,14 @@
 enum class State
 {
 	Title,
-	Rule,
+
+	Game,
+
+	Start,
 	ParaSample,
 	Credit,
-	Game
+	Rule,
+	Result,
 };
 
 // ゲームデータ
@@ -17,6 +21,9 @@ struct GameData
 {
 	// ハイスコア
 	int32 highScore = 0;
+
+	// 今回のスコア
+	int32 currentScore = 0;
 };
 
 // シーン管理クラス

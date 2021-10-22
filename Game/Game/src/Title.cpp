@@ -10,7 +10,7 @@ Title::Title(const InitData& init)
 void Title::update()
 {
 	m_startTransition.update(m_startButton.mouseOver());
-	m_exitTransition.update(m_exitButton.mouseOver());
+	m_exitTransition.update(m_exitButton.mouseOver());	
 
 	if (m_startButton.mouseOver() || m_exitButton.mouseOver())
 	{
@@ -20,7 +20,8 @@ void Title::update()
 	if (m_startButton.leftClicked())
 	{
 		//changeScene(State::Game);
-		changeScene(State::ParaSample);
+		//changeScene(State::ParaSample);
+		changeScene(State::Result);
 	}
 
 	if (m_exitButton.leftClicked())
