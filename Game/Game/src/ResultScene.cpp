@@ -28,7 +28,7 @@ void ResultScene::update()
 
 	if (m_goTitleButton.leftClicked())
 	{
-		changeScene(State::Title);
+		changeScene(State::Start);
 	}
 
 	if (m_exitButton.leftClicked())
