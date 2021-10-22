@@ -13,7 +13,7 @@ void Rule::update()
 
 	if (m_returnButton.leftClicked())
 	{
-		changeScene(State::Title);
+		changeScene(State::Start);
 	}
 	
 }
@@ -33,6 +33,6 @@ void Rule::draw() const
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
 
-	rulePhoto.resized(770).drawAt(center.movedBy(0,112.5));
+	rulePhoto.resized(1000).drawAt(center.movedBy(0,200));
 	Profiler::EnableAssetCreationWarning(false);
 }
