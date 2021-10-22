@@ -38,7 +38,7 @@ void CreditScene::draw() const
 	Rect(0, 0, Scene::Width(), Scene::Height()).draw(ColorF(1, 1, 1));
 	const Vec2 center(Scene::Center().x, 120);
 	//画像
-	const Texture CreditPicture(U"credit2.png");
+	const Texture CreditPicture(Resource(U"credit2.png"));
 	CreditPicture.scaled(0.5).draw(Scene::Center().moveBy(-500, -275));
 	//FontAsset(U"CreditScene")(CreditSceneText).drawAt(center.movedBy(2, -47), ColorF(0.0, 0.5));
 	//FontAsset(U"CreditScene")(CreditSceneText).drawAt(center.movedBy(0,-50));
