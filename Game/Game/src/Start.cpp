@@ -25,7 +25,9 @@ void Start::update()
 
 	if (m_startButton.leftClicked())
 	{
-		changeScene(State::Game);//状態を変更　
+		changeScene(State::Result); // リザルト
+		//changeScene(State::ParaSample); // プロトタイプゲーム
+		//changeScene(State::Game); // ブロック崩し
 	}
 
 	if (m_exitButton.leftClicked())
