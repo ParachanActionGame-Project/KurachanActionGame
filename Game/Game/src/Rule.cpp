@@ -13,7 +13,8 @@ void Rule::update()
 
 	if (m_returnButton.leftClicked())
 	{
-		changeScene(State::Title);
+		//changeScene(State::Title);
+		changeScene(State::Start);
 	}
 	
 }
