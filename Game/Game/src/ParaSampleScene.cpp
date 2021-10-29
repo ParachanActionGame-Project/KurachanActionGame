@@ -19,6 +19,7 @@ ParaSampleScene::ParaSampleScene(const InitData& init)
 	textures.push_back(c);
 	textures.push_back(d);
 	textures.push_back(e);
+	BGM.setVolume(0.3);
 	BGM.play();
 	//下の第二引数現在は160がradius
 	parachans.push_back(ParachanSample(Scene::Center(), 160.0, a, b, c, d, e));
@@ -112,9 +113,7 @@ void ParaSampleScene::draw() const
 	Profiler::EnableAssetCreationWarning(false);
 	const String titleText = U"サンプルゲーム";
 	const Vec2 center(Scene::Center().x, 120);
-	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center.movedBy(2, 3), ColorF(0.0, 0.5));
-	//FontAsset(U"ParaSampleScene")(titleText).drawAt(center);
-	BackGround.draw(0,0);
+	BackGround.scaled(Scene::Width() / (double)BackGround.width()).draw(0, 0);
 	double timeLeft = 60 - Timer.sF();
 	//パラちゃんの描画
 	for (ParachanSample parachan : parachans) {
