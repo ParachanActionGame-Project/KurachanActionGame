@@ -22,7 +22,7 @@ ParaSampleScene::ParaSampleScene(const InitData& init)
 	textures.push_back(d);
 	textures.push_back(e);
 	//BGMの音量設定
-	BGM.setVolume(0.2);
+	BGM.setVolume(0.05);
 	//BGMの再生
 	BGM.play();
 	//最初に画面に表示されるクラちゃんの定義
@@ -78,6 +78,7 @@ void ParaSampleScene::checkMouseClick() {
 				else
 					countScore += 80;
 				//クリックした際の効果音
+				SE.setVolume(0.05);
 				SE.play();
 				//クリックされてからtimerをスタートする
 				if (countClick==1)
