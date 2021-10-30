@@ -50,7 +50,7 @@ void Main()
 		.setFadeColor(ColorF(1.0));
 	    
 
-	Console.open();
+	//Console.open();
 
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
