@@ -25,7 +25,8 @@ void Start::update()
 
 	if (m_startButton.leftClicked())
 	{
-		changeScene(State::Game);//状態を変更　
+		//changeScene(State::Game);//状態を変更　
+		changeScene(State::ParaSample);
 	}
 
 	if (m_exitButton.leftClicked())

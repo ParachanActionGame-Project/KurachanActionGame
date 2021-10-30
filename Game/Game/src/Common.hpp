@@ -8,7 +8,6 @@ enum class State
 	Title,
 
 	Game,
-
 	Start,
 	ParaSample,
 	Credit,
