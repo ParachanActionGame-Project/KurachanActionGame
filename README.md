@@ -32,6 +32,8 @@ https://github.com/ParachanActionGame-Project/KurachanActionGame/releases/tag/v1
 
 https://github.com/ParachanActionGame-Project/ParachanActionGame/blob/main/LICENSE
 
+* このゲームで遊ぶ人はプレイ動画を配信することができます．
+
 # コントリビューション
 
 ## 音声素材
