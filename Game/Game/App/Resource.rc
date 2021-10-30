@@ -4,6 +4,26 @@
 
 //////////////////////////////////////////////////////
 //
+// Kurachan Project Resources
+//
+//////////////////////////////////////////////////////
+Resource(Characters/Kurachan.png)
+Resource(Characters/Kurachan_1.png)
+Resource(Characters/Kurachan_2.png)
+Resource(Characters/Kurachan_4.png)
+Resource(Characters/Kurachan_8.png)
+Resource(Characters/Kurachan_crop.png)
+Resource(Characters/Kurachan_1_crop.png)
+Resource(Characters/Kurachan_2_crop.png)
+Resource(Characters/Kurachan_4_crop.png)
+Resource(Characters/Kurachan_8_crop.png)
+Resource(credit3.png)
+Resource(Rulephoto2.jpg)
+Resource(StartScenef.png)
+
+
+//////////////////////////////////////////////////////
+//
 // Siv3D Engine Resources (DO NOT REMOVE)
 //
 //////////////////////////////////////////////////////
