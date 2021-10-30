@@ -20,6 +20,8 @@
 
 ## Windows
 
+https://github.com/ParachanActionGame-Project/KurachanActionGame/releases/tag/v1.2
+
 <!--## macOS-->
 
 # 遊び方
