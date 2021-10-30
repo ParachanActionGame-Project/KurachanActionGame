@@ -36,10 +36,11 @@ void ParaSampleScene::update()
 	for (int i = 0; i < parachans.size(); i++) {
 		parachans[i].update();
 	}
-	//制限時間が過ぎた時にルールシーンに遷移する
+	//制限時間が過ぎた時にルールシーンに遷移する,BGMを停止する
 	if (Timer.sF() >= 60)
 	{
 		changeScene(State::Result);
+		BGM.stop();
 	}
 }
 //マウスがクラちゃんの画像の上にあるかを判定する
@@ -126,16 +127,15 @@ void ParaSampleScene::draw() const
 	BackGround.scaled(Scene::Width() / (double)BackGround.width()).draw(0, 0);
 	//timerを表示する際の形式の変更
 	int timeLeft = 60 - Timer.sF();
+	double leave = 60 - Timer.sF();
 	//クラちゃんの描画
 	for (ParachanSample parachan : parachans) {
 		parachan.draw();
 		//時間切れになった際の処理
-		if (timeLeft < 0)
+		if (leave < 0.1)
 		{
-			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Center().x, 200);
 			FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y - 1000);
 			getData().currentScore=countScore;
-			BGM.stop();
 		}
 		//スコアや時間の表示
 		else
