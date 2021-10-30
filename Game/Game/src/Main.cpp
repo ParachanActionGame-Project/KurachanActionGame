@@ -23,7 +23,7 @@ void Main()
 	//System::SetTerminationTriggers(UserAction::CloseButtonClicked);
 
 	// タイトルを設定
-	Window::SetTitle(U"ブロックくずし");
+	Window::SetTitle(U"KurachanActionGame");
 
 	// 背景色を設定
 	Scene::SetBackground(ColorF(0.2, 0.8, 0.4));
