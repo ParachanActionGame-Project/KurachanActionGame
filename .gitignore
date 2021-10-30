@@ -390,3 +390,7 @@ AS_DEBUG/
 
 include/
 lib/
+
+## KuraProject
+Game/Game/App/highscore.txt
+Game/Game/App/sound
