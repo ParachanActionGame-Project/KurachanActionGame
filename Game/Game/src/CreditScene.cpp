@@ -10,7 +10,6 @@ CreditScene::CreditScene(const InitData& init)
 
 void CreditScene::update()
 {
-	Window::Resize(Size(1280, 640));
 	m_startTransition.update(m_titleButton.mouseOver());
 
 	if (m_titleButton.mouseOver())
