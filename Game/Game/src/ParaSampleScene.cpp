@@ -39,8 +39,8 @@ void ParaSampleScene::update()
 	//制限時間が過ぎた時にルールシーンに遷移する,BGMを停止する
 	if (Timer.sF() >= 60)
 	{
-		changeScene(State::Result);
 		BGM.stop();
+		changeScene(State::Result);
 	}
 }
 //マウスがクラちゃんの画像の上にあるかを判定する
