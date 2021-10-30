@@ -4,13 +4,21 @@
 
 ParachanSample::ParachanSample(const Vec2 position, double radius, const Vec2 velocity, Texture texture_16,
 	Texture texture_8, Texture texture_4, Texture texture_2, Texture texture_1) : countTime(true) {
+	
 	this->position = position;
+	
 	this->radius = radius;
+	
 	this->velocity = velocity;
+	
 	this->texture_16 = texture_16;
+	
 	this->texture_8 = texture_8;
+	
 	this->texture_4 = texture_4;
+	
 	this->texture_2 = texture_2;
+	
 	this->texture_1 = texture_1;
 }
 
@@ -25,35 +33,31 @@ ParachanSample::ParachanSample(const Vec2 position, double radius,Texture textur
 	
 void ParachanSample::update() {
 	this->position += velocity * Scene::DeltaTime();
-	/*if (getPosition().x <= 0 + radius || getPosition().x >= Scene::Width() - radius)
-	{
-		this->velocity = Vec2(-velocity.x, velocity.y);
-	}
-	if (getPosition().y <= 0 + radius || getPosition().y >= Scene::Height() - radius)
-	{
-		this->velocity = Vec2(velocity.x, -velocity.y);
-	}*/
+	//クラちゃんが壁に当たって反射する際の処理
 	if (getPosition().x <= 0 + texture.width() * checkSizeW())
 	{
 		this->position.x = texture.width() * checkSizeW();
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
+	
 	if (getPosition().x >= Scene::Width() - texture.width() * checkSizeW())
 	{
 		this->position.x = Scene::Width() - texture.width() * checkSizeW();
 		this->velocity = Vec2(-velocity.x, velocity.y);
 	}
+	
 	if (getPosition().y <= 0 + texture.height() * checkSizeH())
 	{
 		this->position.y = texture.height() * checkSizeH();
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
+	
 	if (getPosition().y >= Scene::Height() - texture.height() * checkSizeH())
 	{
 		this->position.y = Scene::Height() - texture.height() * checkSizeH();
 		this->velocity = Vec2(velocity.x, -velocity.y);
 	}
-
+	//クラちゃんが大きくなる際の処理
 	if (countTime.sF() > 5)
 	{
 		if (getRadius() < 20)
@@ -78,7 +82,7 @@ void ParachanSample::update() {
 	}
 }
 
-//parachanの画像に関係
+//大きさ事のパラちゃんの画像の描画
 void ParachanSample::draw() {
 	if (getRadius() >= 160)
 		texture_16.scaled(radius / 800).drawAt(position);
@@ -91,25 +95,25 @@ void ParachanSample::draw() {
 	else
 		texture_1.scaled(radius / 300).drawAt(position);
 }
-
+//クラちゃんの現在位置を呼び出す関数
 Vec2 ParachanSample::getPosition() const {
 	return this->position;
 }
-
+//クラちゃんの大きさを呼び出す関数
 double ParachanSample::getRadius() {
 	return radius;
 }
-
+//クラちゃんの速度を呼び出す関数
 Vec2 ParachanSample::getVelocity() const {
 	return velocity;
 }
-
+//クラちゃんの大きさを設定する関数
 void ParachanSample::setRadius(double x) 
 {
 	radius = x;
 	return;
 }
-
+//画像の大きさごとの横の当たり判定の比を呼び出す関数
 double ParachanSample::checkSizeW()
 {
 	double a;
@@ -125,7 +129,7 @@ double ParachanSample::checkSizeW()
 		a = 0.5;
 	return a;
 }
-
+//画像の大きさごとの縦の当たり判定の比を呼び出す関数
 double ParachanSample::checkSizeH()
 {
 	double a;

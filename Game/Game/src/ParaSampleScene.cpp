@@ -7,8 +7,9 @@
 ParaSampleScene::ParaSampleScene(const InitData& init)
 	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"background/IMG_5796.jpg")
 {
+	//ウィンドウサイズの設定
 	Window::Resize(Size(1280, 720));
-
+	//画像ファイルを配列textureに挿入
 	Texture a(U"Characters/Kurachan_crop.png");
 	Texture b(U"Characters/Kurachan_8_crop.png");
 	Texture c(U"Characters/Kurachan_4_crop.png");
@@ -19,35 +20,42 @@ ParaSampleScene::ParaSampleScene(const InitData& init)
 	textures.push_back(c);
 	textures.push_back(d);
 	textures.push_back(e);
-	BGM.setVolume(0.3);
+	//BGMの音量設定
+	BGM.setVolume(0.2);
+	//BGMの再生
 	BGM.play();
-	//下の第二引数現在は160がradius
+	//最初に画面に表示されるクラちゃんの定義
 	parachans.push_back(ParachanSample(Scene::Center(), 160.0, a, b, c, d, e));
 }
 
 void ParaSampleScene::update()
 {	
+	//マウスがクリックされているかとクラちゃんにカーソルを合わせているかの判定
 	checkMouseClick();
 	checkMouseOver();
 	for (int i = 0; i < parachans.size(); i++) {
 		parachans[i].update();
 	}
+	//制限時間が過ぎた時にルールシーンに遷移する
 	if (Timer.sF() >= 60)
 	{
 		changeScene(State::Result);
 	}
 }
-
+//マウスがクラちゃんの画像の上にあるかを判定する
 void ParaSampleScene::checkMouseOver()
 {
 	Vec2 mousePos = Cursor::PosF();
 	for(int i = 0; i < parachans.size(); i++)
 	{
 		if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius())
-			Cursor::RequestStyle(CursorStyle::Hand);
+		{
+			if(parachans[i].getRadius() > 10)
+				Cursor::RequestStyle(CursorStyle::Hand);
+		}
 	}
 }
-
+//マウスがクリックされた際の処理
 void ParaSampleScene::checkMouseClick() {
 	if (MouseL.down()) {
 		Vec2 mousePos = Cursor::PosF();
@@ -57,6 +65,7 @@ void ParaSampleScene::checkMouseClick() {
 			if ((parachans[i].getPosition() - mousePos).length() < parachans[i].getRadius()&&parachans[i].getRadius()>10) {
 				//point
 				countClick += 1;
+				//スコアの配点
 				if (parachans[i].getRadius() > 80)
 					countScore += 10;
 				else if (parachans[i].getRadius() > 40)
@@ -65,17 +74,18 @@ void ParaSampleScene::checkMouseClick() {
 					countScore += 40;
 				else
 					countScore += 80;
+				//クリックした際の効果音
 				SE.play();
+				//クリックされてからtimerをスタートする
 				if (countClick==1)
 				{
 					Timer.restart();
 				}
 				this->getData().highScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
-				//std::cout << "score"+countScore << this->getData().highScore << std::endl;
-					double r = parachans[i].getRadius() / 2.0;
+				//クリックされ分裂した後のクラちゃんの初速と飛んでいく角度を決める
+				double r = parachans[i].getRadius() / 2.0;
 				if(r<20)
 					double r = 15;
-				//このコードでは初速が四角をとるが充分遅いため円にする必要はないと考える
 				double direction_x = Random(200);
 				double direction_y;
 				if (direction_x <= 100)
@@ -86,14 +96,14 @@ void ParaSampleScene::checkMouseClick() {
 					parachans[i].getPosition() - Vec2(r, 0.0), r, Vec2(-direction_x, -direction_y),textures[0], textures[1], textures[2], textures[3], textures[4]));
 				parachans.push_back(ParachanSample(
 					parachans[i].getPosition() + Vec2(r, 0.0), r, Vec2(direction_x, direction_y), textures[0], textures[1], textures[2], textures[3], textures[4]));
-				//std::cout << c << std::endl;
+				//画面上に表示される最大数の設定
 				parachans.erase(parachans.begin() + i);
 				if (countClick > 32)
 				{
 					parachans.erase(parachans.begin()+Random(30));
 					countClick = 32;
-					
 				}
+				//タイムアップしたときにクラちゃんをすべて削除する
 				if (Timer.sF() > 60)
 				{
 					if(countClick>=32)
@@ -110,25 +120,31 @@ void ParaSampleScene::checkMouseClick() {
 
 void ParaSampleScene::draw() const
 {
+	//大量の画像を呼び出すことができるようにする
 	Profiler::EnableAssetCreationWarning(false);
-	const String titleText = U"サンプルゲーム";
-	const Vec2 center(Scene::Center().x, 120);
+	//背景画像の
 	BackGround.scaled(Scene::Width() / (double)BackGround.width()).draw(0, 0);
-	double timeLeft = 60 - Timer.sF();
-	//パラちゃんの描画
+	//timerを表示する際の形式の変更
+	int timeLeft = 60 - Timer.sF();
+	//クラちゃんの描画
 	for (ParachanSample parachan : parachans) {
 		parachan.draw();
+		//時間切れになった際の処理
 		if (timeLeft < 0)
 		{
 			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Center().x, 200);
 			FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y - 1000);
 			getData().currentScore=countScore;
+			BGM.stop();
 		}
+		//スコアや時間の表示
 		else
 		{
 			FontAsset(U"ParaSampleScene")(countScore).drawAt(Scene::Width() - 100, Scene::Height() - 80);
-			if(countClick>=1)
+			if (countClick >= 1)
+			{
 				FontAsset(U"ParaSampleScene")(timeLeft).drawAt(Scene::Center().x, Scene::Center().y + 300);
+			}
 			else
 				FontAsset(U"ParaSampleScene")(60).drawAt(Scene::Center().x, Scene::Center().y + 300);
 		}
