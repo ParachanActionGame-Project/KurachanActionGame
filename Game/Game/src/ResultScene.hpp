@@ -32,6 +32,8 @@ private:
 	Rect m_tweetButton = Rect(Arg::center = Scene::Center().movedBy(300, 240), 150, 60);
 	Transition m_tweetTransition = Transition(0.4s, 0.2s);
 
+	Texture backgroundTexture;
+
 	int highScore; //今回のプレイ以前のハイスコア
 
 public:
