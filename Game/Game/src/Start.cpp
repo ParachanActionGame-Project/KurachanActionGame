@@ -1,7 +1,7 @@
 ﻿# include "Start.hpp"
 
 Start::Start(const InitData& init)
-	: IScene(init), TitleScene(U"./StartScenef.png")
+	: IScene(init), TitleScene(Resource(U"StartScenef.png"))
 {
 	TextReader reader(U"highscore.txt");
 	if (reader) {
