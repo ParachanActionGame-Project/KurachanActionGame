@@ -5,7 +5,7 @@
 #include <vector>
 
 ParaSampleScene::ParaSampleScene(const InitData& init)
-	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"background/IMG_5796.jpg")
+	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"background/BackGround.jpg")
 {
 	//ウィンドウサイズの設定
 	Window::Resize(Size(1280, 720));
