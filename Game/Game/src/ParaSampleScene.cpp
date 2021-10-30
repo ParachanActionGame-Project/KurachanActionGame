@@ -38,7 +38,7 @@ void ParaSampleScene::update()
 		parachans[i].update();
 	}
 	//制限時間が過ぎた時にルールシーンに遷移する,BGMを停止する
-	if (Timer.sF() >= 5)
+	if (Timer.sF() >= 60)
 	{
 		getData().currentScore = countScore;
 		BGM.stop();
