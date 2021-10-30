@@ -38,7 +38,7 @@ void ResultScene::update()
 	}
 
 	if (m_tweetButton.leftClicked()) {
-		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得!\n\n" + U"https://github.com/ParachanActionGame-Project/ParachanActionGame"
+		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得!\n\n" + U"https://github.com/ParachanActionGame-Project/KurachanActionGame"
 			+ U"\n\n#KurachanActionGame");
 	}
 
