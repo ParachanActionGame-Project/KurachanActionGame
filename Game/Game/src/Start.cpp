@@ -3,7 +3,16 @@
 Start::Start(const InitData& init)
 	: IScene(init), TitleScene(U"./StartScenef.png")
 {
-	
+	TextReader reader(U"highscore.txt");
+	if (reader) {
+		String highScoreText;
+		reader.readLine(highScoreText);
+		getData().highScore = Parse<int>(highScoreText);
+	}
+	else {
+		getData().highScore = 0;
+	}
+
 }
 
 void Start::update()

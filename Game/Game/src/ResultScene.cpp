@@ -100,8 +100,10 @@ int ResultScene::getHighScore()
 void ResultScene::updateHighScore() 
 {
 	highScore = getData().highScore;
-	if (getData().currentScore > highScore) {
-		getData().highScore = getData().currentScore;
+	currentScore = getData().currentScore;
+	if (currentScore > highScore) {
+		getData().highScore = currentScore;
 		writeHighScore();
 	}
+	highScore = getData().highScore;
 }

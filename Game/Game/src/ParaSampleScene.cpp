@@ -40,6 +40,7 @@ void ParaSampleScene::update()
 	//制限時間が過ぎた時にルールシーンに遷移する,BGMを停止する
 	if (Timer.sF() >= 60)
 	{
+		getData().currentScore = countScore;
 		BGM.stop();
 		changeScene(State::Result);
 	}
@@ -83,7 +84,7 @@ void ParaSampleScene::checkMouseClick() {
 				{
 					Timer.restart();
 				}
-				this->getData().highScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
+				//this->getData().currentScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
 				//クリックされ分裂した後のクラちゃんの初速と飛んでいく角度を決める
 				double r = parachans[i].getRadius() / 2.0;
 				if(r<20)

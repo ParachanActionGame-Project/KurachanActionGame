@@ -35,6 +35,7 @@ private:
 	Texture backgroundTexture;
 
 	int highScore; //今回のプレイ以前のハイスコア
+	int currentScore;
 
 public:
 
