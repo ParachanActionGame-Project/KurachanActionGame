@@ -1,5 +1,8 @@
 # KurachanActionGame
 
+<img src="https://github.com/ParachanActionGame-Project/ParachanActionGame/blob/b13d8cd3bd8b61ab8a7babeba9e5aaa19d6f00b4/Game/Game/App/%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E7%94%BB%E9%9D%A2.png"/>
+<img src="https://github.com/ParachanActionGame-Project/ParachanActionGame/blob/b13d8cd3bd8b61ab8a7babeba9e5aaa19d6f00b4/Game/Game/App/%E3%83%97%E3%83%AC%E3%82%A4%E7%94%BB%E9%9D%A2.png"/>
+
 # ゲームの概要
 
 * タイトル : KurachanActionGame
@@ -13,7 +16,7 @@
 * 開発環境 : Siv3D
 * バージョン : 1.0
 
-# インストール
+# ダウンロード
 
 ## Windows
 
