@@ -3,7 +3,7 @@
 using namespace result;
 
 ResultKurachan::ResultKurachan(const Vec2 position, EResultKurachan type, const Vec2 velocity, String imagePath) :
-	texture(imagePath)
+	texture(Resource(imagePath))
 {
 	this->position = position;
 	this->type = type;

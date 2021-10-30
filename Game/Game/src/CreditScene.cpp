@@ -2,8 +2,8 @@
 # include "CreditScene.hpp"
 
 CreditScene::CreditScene(const InitData& init)
-	: IScene(init), StuffCredit(Resource(U"credit3.png")), Kurachan_32(U"Characters/Kurachan_crop.png"),
-	kuraHuman(U"Characters/Kurachan_Human_crop.png")
+	: IScene(init), StuffCredit(Resource(U"credit3.png")), Kurachan_32(Resource(U"Characters/Kurachan_crop.png")),
+	kuraHuman(Resource(U"Characters/Kurachan_Human_crop.png"))
 {
 
 }

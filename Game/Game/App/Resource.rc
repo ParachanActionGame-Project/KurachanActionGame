@@ -18,8 +18,12 @@ Resource(Characters/Kurachan_2_crop.png)
 Resource(Characters/Kurachan_4_crop.png)
 Resource(Characters/Kurachan_8_crop.png)
 Resource(credit3.png)
-Resource(Rulephoto2.jpg)
 Resource(StartScenef.png)
+Resource(Characters/Kurachan_Human_crop.png)
+Resource(sound/enemy.mp3)
+Resource(sound/BGM.mp3)
+Resource(background/BackGround.jpg)
+Resource(HowToPlay.png)
 
 
 //////////////////////////////////////////////////////

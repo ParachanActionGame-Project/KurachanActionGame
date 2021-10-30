@@ -5,16 +5,17 @@
 #include <vector>
 
 ParaSampleScene::ParaSampleScene(const InitData& init)
-	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"background/BackGround.jpg")
+	: IScene(init),SE(Resource(U"sound/enemy.mp3")),BGM(Resource(U"sound/BGM.mp3"), Arg::loop = true),
+	Timer(true), BackGround(Resource(U"background/BackGround.jpg"))
 {
 	//ウィンドウサイズの設定
 	Window::Resize(Size(1280, 720));
 	//画像ファイルを配列textureに挿入
-	Texture a(U"Characters/Kurachan_crop.png");
-	Texture b(U"Characters/Kurachan_8_crop.png");
-	Texture c(U"Characters/Kurachan_4_crop.png");
-	Texture d(U"Characters/Kurachan_2_crop.png");
-	Texture e(U"Characters/Kurachan_1_crop.png");
+	Texture a(Resource(U"Characters/Kurachan_crop.png"));
+	Texture b(Resource(U"Characters/Kurachan_8_crop.png"));
+	Texture c(Resource(U"Characters/Kurachan_4_crop.png"));
+	Texture d(Resource(U"Characters/Kurachan_2_crop.png"));
+	Texture e(Resource(U"Characters/Kurachan_1_crop.png"));
 	textures.push_back(a);
 	textures.push_back(b);
 	textures.push_back(c);
