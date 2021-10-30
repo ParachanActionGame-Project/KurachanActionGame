@@ -6,7 +6,7 @@
 
 ParaSampleScene::ParaSampleScene(const InitData& init)
 	: IScene(init),SE(Resource(U"sound/enemy.mp3")),BGM(Resource(U"sound/BGM.mp3"), Arg::loop = true),
-	Timer(true), BackGround(Resource(U"background/BackGround.jpg"))
+	Timer(true), BackGround(Resource(U"background/GameBackGround.jpg"))
 {
 	//ウィンドウサイズの設定
 	Window::Resize(Size(1280, 720));

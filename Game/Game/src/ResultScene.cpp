@@ -2,7 +2,7 @@
 # include "ResultScene.hpp"
 
 ResultScene::ResultScene(const InitData& init)
-	: IScene(init), backgroundTexture(Resource(U"background/BackGround.jpg"))
+	: IScene(init), backgroundTexture(Resource(U"background/GameBackGround.jpg"))
 {
 	//getData().currentScore = 20;
 	updateHighScore();
