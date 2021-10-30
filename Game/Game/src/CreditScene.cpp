@@ -2,8 +2,8 @@
 # include "CreditScene.hpp"
 
 CreditScene::CreditScene(const InitData& init)
-	: IScene(init), StuffCredit(U"credit3.png"), Kurachan_32(U"Characters/Kurachan_crop.png"),
-	kuraHuman(U"Characters/Kurachan_Human_crop.png")
+	: IScene(init), StuffCredit(Resource(U"credit3.png")), Kurachan_32(Resource(U"Characters/Kurachan_crop.png")),
+	kuraHuman(Resource(U"Characters/Kurachan_Human_crop.png"))
 {
 
 }
@@ -36,8 +36,8 @@ void CreditScene::draw() const
 	StuffCredit.draw(0,0).setSize(1280,720);
 	Kurachan_32.draw(450, sceneCenter.y+50).scaled(100);
 	kuraHuman.scaled(0.35).draw(650, sceneCenter.y - 300);
-	m_titleButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
-	FontAsset(U"Menu")(U"タイトルに戻る").drawAt(m_titleButton.center(), Palette::White);
+	m_titleButton.draw(ColorF(1.0, m_startTransition.value())).draw(ColorF(1, 1, 1, 0.7));
+	FontAsset(U"Menu")(U"タイトルに戻る").drawAt(m_titleButton.center(), Palette::Black);
 	Rect(0, 500, Scene::Width(), Scene::Height() - 500)
 		.draw(Arg::top = ColorF(0.0, 0.0), Arg::bottom = ColorF(0.0, 0.5));
 }

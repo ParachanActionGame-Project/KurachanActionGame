@@ -23,13 +23,13 @@ void Main()
 	//System::SetTerminationTriggers(UserAction::CloseButtonClicked);
 
 	// タイトルを設定
-	Window::SetTitle(U"ブロックくずし");
+	Window::SetTitle(U"KurachanActionGame");
 
 	// 背景色を設定
 	Scene::SetBackground(ColorF(0.2, 0.8, 0.4));
 
 	// 使用するフォントアセットを登録
-	FontAsset::Register(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
+	FontAsset::Register(U"Title", 120, Typeface::Bold);
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
 	FontAsset::Register(U"ParaSampleScene", 36, Typeface::Bold);

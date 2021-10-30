@@ -2,9 +2,7 @@
 # include "Rule.hpp"
 
 Rule::Rule(const InitData& init)
-	: IScene(init), rulePhoto(U"あそびかた.png") ,Background(U"IMG_5807.jpg")
-
-
+	: IScene(init), rulePhoto(Resource(U"HowToPlay.png")), Background(Resource(U"background/RuleBackGround.jpg"))
 {
 
 }

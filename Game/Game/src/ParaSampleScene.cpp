@@ -5,23 +5,24 @@
 #include <vector>
 
 ParaSampleScene::ParaSampleScene(const InitData& init)
-	: IScene(init),SE(U"sound/enemy.mp3"),BGM(U"sound/BGM.mp3", Arg::loop = true), Timer(true), BackGround(U"background/IMG_5796.jpg")
+	: IScene(init),SE(Resource(U"sound/enemy.mp3")),BGM(Resource(U"sound/BGM.mp3"), Arg::loop = true),
+	Timer(true), BackGround(Resource(U"background/GameBackGround.jpg"))
 {
 	//ウィンドウサイズの設定
 	Window::Resize(Size(1280, 720));
 	//画像ファイルを配列textureに挿入
-	Texture a(U"Characters/Kurachan_crop.png");
-	Texture b(U"Characters/Kurachan_8_crop.png");
-	Texture c(U"Characters/Kurachan_4_crop.png");
-	Texture d(U"Characters/Kurachan_2_crop.png");
-	Texture e(U"Characters/Kurachan_1_crop.png");
+	Texture a(Resource(U"Characters/Kurachan_crop.png"));
+	Texture b(Resource(U"Characters/Kurachan_8_crop.png"));
+	Texture c(Resource(U"Characters/Kurachan_4_crop.png"));
+	Texture d(Resource(U"Characters/Kurachan_2_crop.png"));
+	Texture e(Resource(U"Characters/Kurachan_1_crop.png"));
 	textures.push_back(a);
 	textures.push_back(b);
 	textures.push_back(c);
 	textures.push_back(d);
 	textures.push_back(e);
 	//BGMの音量設定
-	BGM.setVolume(0.2);
+	BGM.setVolume(0.05);
 	//BGMの再生
 	BGM.play();
 	//最初に画面に表示されるクラちゃんの定義
@@ -39,6 +40,7 @@ void ParaSampleScene::update()
 	//制限時間が過ぎた時にルールシーンに遷移する,BGMを停止する
 	if (Timer.sF() >= 60)
 	{
+		getData().currentScore = countScore;
 		BGM.stop();
 		changeScene(State::Result);
 	}
@@ -76,13 +78,14 @@ void ParaSampleScene::checkMouseClick() {
 				else
 					countScore += 80;
 				//クリックした際の効果音
+				SE.setVolume(0.05);
 				SE.play();
 				//クリックされてからtimerをスタートする
 				if (countClick==1)
 				{
 					Timer.restart();
 				}
-				this->getData().highScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
+				//this->getData().currentScore += 10; // 自身のParaSampleSceneインスタンスの基底クラスであるSceneManagerのgetData関数を呼んでいる
 				//クリックされ分裂した後のクラちゃんの初速と飛んでいく角度を決める
 				double r = parachans[i].getRadius() / 2.0;
 				if(r<20)

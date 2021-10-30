@@ -2,7 +2,7 @@
 # include "ResultScene.hpp"
 
 ResultScene::ResultScene(const InitData& init)
-	: IScene(init)
+	: IScene(init), backgroundTexture(Resource(U"background/GameBackGround.jpg"))
 {
 	//getData().currentScore = 20;
 	updateHighScore();
@@ -38,7 +38,8 @@ void ResultScene::update()
 	}
 
 	if (m_tweetButton.leftClicked()) {
-		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得! #KurachanActionGame");
+		Twitter::OpenTweetWindow(Format(getData().currentScore) + U"点獲得!\n\n" + U"https://github.com/ParachanActionGame-Project/KurachanActionGame"
+			+ U"\n\n#KurachanActionGame");
 	}
 
 	for (int i = 0; i < parachans.size(); i++) {
@@ -48,6 +49,8 @@ void ResultScene::update()
 
 void ResultScene::draw() const
 {
+	backgroundTexture.scaled(Scene::Width() / (double)backgroundTexture.width()).draw(0, 0);
+
 	for (int i = 0; i < parachans.size(); i++) {
 		//std::cout << parachans[i].getPosition() << " " << parachans[i].getVelocity() << std::endl;
 		parachans[i].draw();
@@ -60,10 +63,10 @@ void ResultScene::draw() const
 	FontAsset(U"Score")(U"今回のスコア: {}"_fmt(getData().currentScore)).drawAt(center + Vec2(0, 120));
 	FontAsset(U"Score")(U"ハイスコア: {}"_fmt(highScore)).drawAt(center + Vec2(0, 160));
 
-	m_startButton.draw(ColorF(1.0, m_startTransition.value())).drawFrame(2);
-	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).drawFrame(2);
-	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).drawFrame(2);
-	m_tweetButton.draw(ColorF(1.0, m_tweetTransition.value())).drawFrame(2);
+	m_startButton.draw(ColorF(1.0, m_startTransition.value())).draw(ColorF(1, 1, 1, 0.7));
+	m_goTitleButton.draw(ColorF(1.0, m_goTitleTransition.value())).draw(ColorF(1, 1, 1, 0.7));
+	m_exitButton.draw(ColorF(1.0, m_exitTransition.value())).draw(ColorF(1, 1, 1, 0.7));
+	m_tweetButton.draw(ColorF(1.0, m_tweetTransition.value())).draw(ColorF(1, 1, 1, 0.7));
 
 	FontAsset(U"Menu")(U"もういちど").drawAt(m_startButton.center(), ColorF(0.25));
 	FontAsset(U"Menu")(U"タイトルへ").drawAt(m_goTitleButton.center(), ColorF(0.25));
@@ -98,8 +101,10 @@ int ResultScene::getHighScore()
 void ResultScene::updateHighScore() 
 {
 	highScore = getData().highScore;
-	if (getData().currentScore > highScore) {
-		getData().highScore = getData().currentScore;
+	currentScore = getData().currentScore;
+	if (currentScore > highScore) {
+		getData().highScore = currentScore;
 		writeHighScore();
 	}
+	highScore = getData().highScore;
 }
