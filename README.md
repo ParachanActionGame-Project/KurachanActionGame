@@ -10,11 +10,11 @@
 * 作者 : ParachanActionGame-Project（さんたろ, Jumpaku, roro, stella1225, syokusonn）
 * ジャンル : アクション
 * プレイ時間 : 1分程度
-* プラットフォーム : Windows <!--& macOS-->
+* プラットフォーム : Windows & macOS
 * リリース : 2021年10月31日
 * 言語 : 日本語
 * 開発環境 : Siv3D
-* バージョン : 1.0
+* バージョン : 1.2
 
 # ダウンロード
 
@@ -22,7 +22,9 @@
 
 https://github.com/ParachanActionGame-Project/KurachanActionGame/releases/tag/v1.2
 
-<!--## macOS-->
+## macOS
+
+https://github.com/ParachanActionGame-Project/KurachanActionGame/releases/tag/v1.2-macos
 
 # 遊び方
 
